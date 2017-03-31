@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shooting.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <!-- TEAL EXAMPLE TEMPLATE-->
+            <ControlTemplate x:Key="exampleTemplate1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.05*"/>
+                        <ColumnDefinition Width="0.95*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView Grid.ColumnSpan="2" Color="Teal" />
+                    <Label Text="Control Template Demo App"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           Grid.Column="1"/>
+                    <ContentPresenter Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <BoxView Color="Teal" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Label Text="(c) Xamarin 2016"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </ControlTemplate>
+            <!-- AQUA EXAMPLE TEMPLATE-->
+            <ControlTemplate x:Key="exampleTemplate2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.05*"/>
+                        <ColumnDefinition Width="0.95*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView Grid.ColumnSpan="2" Color="Aqua" />
+                    <Label Text="Control Template Demo App"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           Grid.Column="1"/>
+                    <ContentPresenter Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <BoxView Color="Aqua" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Label Text="(c) Xamarin 2016"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </ControlTemplate>
+            
+            <!-- COLORS-->
+            <Color x:Key="buttonColor">Navy</Color>
+            <Color x:Key="buttonTextColor">White</Color>
+        </ResourceDictionary>
+		<!-- Application resource dictionary -->
+
+	</Application.Resources>
+</Application>

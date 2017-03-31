@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shooting.Jaktfelt"
+             Title="Jaktfelt">
+    <ScrollView>
+        <Label Text="This is Jaktfelt page!" />
+        <StackLayout Margin="10,30,10,20" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <Label Text="Register result for Jaktfelt" FontSize="Medium"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <DatePicker></DatePicker>
+                <Entry Placeholder="StevneID"></Entry>
+                <Entry Placeholder="Name"></Entry>
+            </StackLayout>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Post 1" TextColor="Black"/>
+                    <StackLayout x:Name="Post1" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal" >
+
+                            <Entry Placeholder="Hits"></Entry>
+
+                            <Entry Placeholder="Inner hits"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Post 2" TextColor="Black"/>
+                    <StackLayout x:Name="Post2" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal" >
+
+                            <Entry Placeholder="Hits"></Entry>
+
+                            <Entry Placeholder="Inner hits"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Post 3" TextColor="Black"/>
+                    <StackLayout x:Name="Post3" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal" >
+
+                            <Entry Placeholder="Hits"></Entry>
+
+                            <Entry Placeholder="Inner hits"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Post 4" TextColor="Black"/>
+                    <StackLayout x:Name="Post4" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal" >
+
+                            <Entry Placeholder="Hits"></Entry>
+
+                            <Entry Placeholder="Inner hits"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Post 5" TextColor="Black"/>
+                    <StackLayout x:Name="Post5" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal" >
+
+                            <Entry Placeholder="Hits"></Entry>
+
+                            <Entry Placeholder="Inner hits"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Post 6" TextColor="Black"/>
+                    <StackLayout x:Name="Post6" HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal" >
+
+                            <Entry Placeholder="Hits"></Entry>
+
+                            <Entry Placeholder="Inner hits"></Entry>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Button Clicked="Register_Jaktfelt" BackgroundColor="{StaticResource buttonColor}" TextColor="{StaticResource buttonTextColor}" Text="Add results"></Button>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

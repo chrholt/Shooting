@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shooting.Jegertrap"
+             Title="Jegertrap">
+    <Label Text="This is Jegertrap page!" />
+
+    <StackLayout>
+        
+        <Frame OutlineColor="Lime">
+            <StackLayout>
+                <Label Text="Post 1" TextColor="Black" FontAttributes="Italic"/>
+                <StackLayout Orientation="Horizontal">
+
+                    <StackLayout>
+                        <Label Text="Shot 1" />
+                        <Entry Placeholder="Hits - shot 1"></Entry>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="Shot 2" />
+                        <Entry Placeholder="Hits - shot 2"></Entry>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Single shot" />
+                        <Switch />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
