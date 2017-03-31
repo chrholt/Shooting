@@ -35,6 +35,7 @@ namespace Shooting
             //          </ StackLayout >
             //figurjaktPosts
             var value = Convert.ToInt16(e.NewValue);
+            var dblValue = e.NewValue;
             regulatePosts(value);
             
         }
