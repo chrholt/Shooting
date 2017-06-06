@@ -143,5 +143,16 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLite-net.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLitePCLRaw.batteries_green.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLitePCLRaw.core.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLite-net.xml
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\SQLite-net.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\System.IO.Compression.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\SQLite-net.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.IO.Compression.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\Shooting.Android.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\Shooting.Android.dll.mdb

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shooting.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,24 @@ namespace Shooting
 {
     public partial class App : Application
     {
+        static ShootingDatabase database;
         public App()
         {
             InitializeComponent();
 
             MainPage = new MainPage();
+        }
+
+        public static ShootingDatabase Database
+        {
+            get
+            {
+                if(database == null)
+                {
+                    database = new ShootingDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Shooting.db3"));
+                }
+                return database;
+            }
         }
 
         protected override void OnStart()
