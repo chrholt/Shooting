@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Shooting"
+             x:Class="Shooting.MainPage"
+             BackgroundColor="Gray"
+             Title="Main Page">
+
+    <MasterDetailPage.Master>
+        <ContentPage Padding="2" 
+                     Title="Menu">
+            <ContentPage.Content>
+                <StackLayout Orientation="Vertical">
+                    <!-- USE FOR OTHER DATA WANTED IN MENU-->
+
+                    <StackLayout HeightRequest="75">
+                        <Label Text="Menu" 
+                               FontSize="20" 
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <ListView x:Name="menuListView" 
+                              VerticalOptions="FillAndExpand" 
+                              SeparatorVisibility="None"
+                              ItemSelected="menuListView_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand" 
+                                                 Orientation="Horizontal" 
+                                                 Padding="20,10,0,10"
+                                                 Spacing="20">
+                                        <Image Source="{Binding Icon}"
+                                               WidthRequest="72"
+                                               HeightRequest="72"
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding Title}"
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               TextColor="Black" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <ContentPage Padding="10">
+            <ContentPage.Content>
+                <StackLayout Margin="5,30,5,5">
+                    <Label Text="Detail Page" />
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

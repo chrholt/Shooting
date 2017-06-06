@@ -38,22 +38,23 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Figurjakt.xaml.cs">
+    <Compile Include="MenuItems\MasterPageItem.cs" />
+    <Compile Include="Views\Figurjakt.xaml.cs">
       <DependentUpon>Figurjakt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Jaktfelt.xaml.cs">
+    <Compile Include="Views\Jaktfelt.xaml.cs">
       <DependentUpon>Jaktfelt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Jegertrap.xaml.cs">
+    <Compile Include="Views\Jegertrap.xaml.cs">
       <DependentUpon>Jegertrap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
+    <EmbeddedResource Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -83,19 +84,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Jaktfelt.xaml">
+    <EmbeddedResource Include="Views\Jaktfelt.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Figurjakt.xaml">
+    <EmbeddedResource Include="Views\Figurjakt.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Jegertrap.xaml">
+    <EmbeddedResource Include="Views\Jegertrap.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

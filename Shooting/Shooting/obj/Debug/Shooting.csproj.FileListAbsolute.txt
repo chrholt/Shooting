@@ -20,3 +20,25 @@ e:\Users\chhol\documents\visual studio 2015\Projects\Shooting\Shooting\Shooting\
 e:\Users\chhol\documents\visual studio 2015\Projects\Shooting\Shooting\Shooting\bin\Debug\Mono.Android.xml
 e:\Users\chhol\documents\visual studio 2015\Projects\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
 e:\Users\chhol\documents\visual studio 2015\Projects\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.pdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Mono.Android.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Core.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Platform.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Xaml.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Mono.Android.xml
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Core.pdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Core.xml
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Platform.pdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Xaml.pdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Xaml.xml
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.csprojResolveAssemblyReference.cache
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.App.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.pdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.MainPage.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.Jaktfelt.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.Figurjakt.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.Jegertrap.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb
