@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Shooting.Views;
 
 namespace Shooting
 {
@@ -14,6 +15,7 @@ namespace Shooting
         {
             InitializeComponent();
 
+            //FILL MENU WITH LINKS TO PAGES
             var menuList = new List<MasterPageItem>();
             menuList.Add(new MasterPageItem
             {
@@ -24,7 +26,24 @@ namespace Shooting
 
             menuListView.ItemsSource = menuList;
 
-            Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Figurjakt)));
+            //FILL SETTINGS SECTION WITH LINKS TO PAGES
+            var settingsSectionList = new List<MasterPageItem>();
+            settingsSectionList.Add(new MasterPageItem
+            {
+                Title = "Settings",
+                Icon = "icon.png",
+                TargetType = typeof(Settings)
+            });
+
+            settingsSectionListView.ItemsSource = settingsSectionList;
+
+            //SETS DETAIL PAGE
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(Figurjakt)));
+            detailPage.BarBackgroundColor = Color.FromHex("#666666");
+            detailPage.BarTextColor = Color.FromHex("#FFFFFF");
+            Detail = detailPage;
+
+            
         }
 
         private void menuListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -32,8 +51,16 @@ namespace Shooting
             var item = (MasterPageItem)e.SelectedItem;
             Type page = item.TargetType;
 
-            Detail = new NavigationPage((Page)Activator.CreateInstance(page));
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(page));
+            detailPage.BarBackgroundColor = Color.FromHex("#666666");
+            detailPage.BarTextColor = Color.FromHex("#FFFFFF");
+            Detail = detailPage;
             IsPresented = false;
+        }
+
+        private void settingsSectionListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
 }

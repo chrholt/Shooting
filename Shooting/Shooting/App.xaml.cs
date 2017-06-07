@@ -16,6 +16,8 @@ namespace Shooting
             InitializeComponent();
 
             MainPage = new MainPage();
+
+            
         }
 
         public static ShootingDatabase Database

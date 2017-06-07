@@ -20,9 +20,13 @@ namespace Shooting {
         private global::Xamarin.Forms.ListView menuListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView settingsSectionListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(MainPage));
             menuListView = this.FindByName<global::Xamarin.Forms.ListView>("menuListView");
+            settingsSectionListView = this.FindByName<global::Xamarin.Forms.ListView>("settingsSectionListView");
         }
     }
 }

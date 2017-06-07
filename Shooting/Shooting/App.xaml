@@ -58,6 +58,14 @@
             <!-- COLORS-->
             <Color x:Key="buttonColor">Navy</Color>
             <Color x:Key="buttonTextColor">White</Color>
+            <Color x:Key="whiteText">White</Color>
+            <Color x:Key="blackText">Black</Color>
+            <Color x:Key="transparent">Transparent</Color>
+            <Color x:Key="menuItemText">#333333</Color>
+            <Color x:Key="menuSettingsItemText">White</Color>
+            <Color x:Key="masterSettingsSectionBackground">#666666</Color>
+            <Color x:Key="masterBarBackground">#333333</Color>
+            <Color x:Key="detailBarBackground">#666666</Color>
         </ResourceDictionary>
 		<!-- Application resource dictionary -->
 
