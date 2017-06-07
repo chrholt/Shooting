@@ -32,7 +32,6 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.C
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Platform.pdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Xaml.pdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Xamarin.Forms.Xaml.xml
-E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.csprojResolveAssemblyReference.cache
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.App.xaml.g.cs
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.pdb
@@ -46,5 +45,8 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\SQLitePCLRaw.ba
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\SQLitePCLRaw.core.dll
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\SQLite-net.xml
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.Settings.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.FigurjaktCreate.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Newtonsoft.Json.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Newtonsoft.Json.xml
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb

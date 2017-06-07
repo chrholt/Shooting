@@ -39,12 +39,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database\ShootingDatabase.cs" />
+    <Compile Include="DigitBehavior.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="MenuItems\MasterPageItem.cs" />
     <Compile Include="Models\FigurjaktResult.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Views\Figurjakt.xaml.cs">
       <DependentUpon>Figurjakt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FigurjaktCreate.xaml.cs">
+      <DependentUpon>FigurjaktCreate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Jaktfelt.xaml.cs">
       <DependentUpon>Jaktfelt.xaml</DependentUpon>
@@ -73,6 +77,10 @@
   <ItemGroup>
     <Reference Include="Mono.Android">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v7.1\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\sqlite-net-pcl.1.3.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
@@ -126,6 +134,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Settings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FigurjaktCreate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

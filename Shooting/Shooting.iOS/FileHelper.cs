@@ -2,23 +2,20 @@
 using System.IO;
 using Xamarin.Forms;
 using Shooting.iOS;
+using SQLite;
 
 [assembly: Dependency(typeof(FileHelper))]
 namespace Shooting.iOS
 {
     public class FileHelper : IFileHelper
     {
-        public string GetLocalFilePath(string filename)
+        public SQLiteConnection DbConnection()
         {
-            string docfolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string libFolder = Path.Combine(docfolder, "..", "Library", "Databases");
-
-            if (!Directory.Exists(libFolder))
-            {
-                Directory.CreateDirectory(libFolder);
-            }
-
-            return Path.Combine(libFolder, filename);
+            var dbName = "Shooting.db3";
+            string personalFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string libraryFolder = Path.Combine(personalFolder, "..", "Library");
+            var path = Path.Combine(libraryFolder, dbName);
+            return new SQLiteConnection(path);
         }
     }
 }

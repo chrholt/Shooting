@@ -14,7 +14,7 @@
                     <!-- USE FOR OTHER DATA WANTED IN MENU-->
 
                     <StackLayout HeightRequest="75" BackgroundColor="{Binding Source={StaticResource masterBarBackground}}">
-                        <Label Text="Menu" 
+                        <Label Text="Meny" 
                                FontSize="20" 
                                VerticalOptions="CenterAndExpand" 
                                HorizontalOptions="Center"

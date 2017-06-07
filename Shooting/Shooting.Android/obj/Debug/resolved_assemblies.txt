@@ -52,3 +52,10 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Collections.Concurrent.dll
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Diagnostics.Tools.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Xml.XDocument.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Text.Encoding.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\Microsoft.CSharp.dll
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android\assets\Mono.CSharp.dll

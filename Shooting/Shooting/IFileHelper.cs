@@ -8,6 +8,6 @@ namespace Shooting
 {
     public interface IFileHelper
     {
-        string GetLocalFilePath(string filename);
+        SQLite.SQLiteConnection DbConnection();
     }
 }

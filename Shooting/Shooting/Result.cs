@@ -17,4 +17,6 @@ namespace Shooting
         public string Type { get; set; }
         public string Results { get; set; }
     }
+
+    
 }

@@ -10,7 +10,7 @@ namespace Shooting
 {
     public partial class App : Application
     {
-        static ShootingDatabase database;
+        //static ShootingDatabase database;
         public App()
         {
             InitializeComponent();
@@ -20,17 +20,7 @@ namespace Shooting
             
         }
 
-        public static ShootingDatabase Database
-        {
-            get
-            {
-                if(database == null)
-                {
-                    database = new ShootingDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Shooting.db3"));
-                }
-                return database;
-            }
-        }
+        
 
         protected override void OnStart()
         {

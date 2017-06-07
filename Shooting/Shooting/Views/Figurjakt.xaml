@@ -6,13 +6,28 @@
     <ScrollView HorizontalOptions="FillAndExpand">
         <Label Text="This is Figurjakt page!" />
         <StackLayout Margin="10,30,10,20">
-            <StackLayout Orientation="Horizontal">
-                <DatePicker Format="dd/MM/yyyy"></DatePicker>
-                <Entry Placeholder="StevneID"></Entry>
-                <Entry Placeholder="Name"></Entry>
-            </StackLayout>
+            <ListView x:Name="figurjaktResultsListView"
+                      VerticalOptions="FillAndExpand"
+                      ItemSelected="figurjaktResultsListView_ItemSelected"
+                      ItemsSource="{Binding Path=Results}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Orientation="Horizontal"
+                                         Spacing="10"
+                                         HeightRequest="30">
+                                <Label TextColor="Black" Text="{Binding Name}" />
+                                <Label TextColor="Black" Text="-" />
+                                <Label TextColor="Black" Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             
-
         </StackLayout>
+        
     </ScrollView>
 </ContentPage>

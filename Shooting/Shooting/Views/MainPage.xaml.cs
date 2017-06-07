@@ -23,6 +23,13 @@ namespace Shooting
                 Icon = "icon.png",
                 TargetType = typeof(Figurjakt)
             });
+            //REMOVE THIS
+            menuList.Add(new MasterPageItem
+            {
+                Title = "Test link",
+                Icon = "icon.png",
+                TargetType = typeof(Figurjakt)
+            });
 
             menuListView.ItemsSource = menuList;
 
@@ -30,20 +37,21 @@ namespace Shooting
             var settingsSectionList = new List<MasterPageItem>();
             settingsSectionList.Add(new MasterPageItem
             {
-                Title = "Settings",
+                Title = "Innstillinger",
                 Icon = "icon.png",
                 TargetType = typeof(Settings)
             });
 
+
             settingsSectionListView.ItemsSource = settingsSectionList;
 
             //SETS DETAIL PAGE
-            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(Figurjakt)));
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(FigurjaktCreate)));
             detailPage.BarBackgroundColor = Color.FromHex("#666666");
             detailPage.BarTextColor = Color.FromHex("#FFFFFF");
             Detail = detailPage;
 
-            
+
         }
 
         private void menuListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -60,7 +68,14 @@ namespace Shooting
 
         private void settingsSectionListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var item = (MasterPageItem)e.SelectedItem;
+            Type page = item.TargetType;
 
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(page));
+            detailPage.BarBackgroundColor = Color.FromHex("#666666");
+            detailPage.BarTextColor = Color.FromHex("#FFFFFF");
+            Detail = detailPage;
+            IsPresented = false;
         }
     }
 }

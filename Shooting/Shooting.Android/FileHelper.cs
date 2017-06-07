@@ -2,16 +2,18 @@
 using System.IO;
 using Shooting.Droid;
 using Xamarin.Forms;
+using SQLite;
 
 [assembly: Dependency(typeof(FileHelper))]
 namespace Shooting.Droid
 {
     public class FileHelper : IFileHelper
     {
-        public string GetLocalFilePath (string filename)
+        public SQLiteConnection DbConnection()
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            return Path.Combine(path, filename);
+            var dbName = "Shooting.db3";
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), dbName);
+            return new SQLiteConnection(path);
         }
     }
 }

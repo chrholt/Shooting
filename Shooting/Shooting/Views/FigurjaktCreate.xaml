@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:digits="clr-namespace:Shooting;assembly=Shooting"
+             x:Class="Shooting.Views.FigurjaktCreate"
+             Title="Create figurjakt result">
+    <StackLayout Padding="20">
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Navn" HorizontalOptions="Fill" />
+                <Entry Grid.Row="1" x:Name="nameEntry" HorizontalOptions="Fill"/>
+            </Grid>
+
+        </Frame>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Dato" />
+                <DatePicker Grid.Row="1" Grid.Column="0" x:Name="datePicker">
+                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                </DatePicker>
+
+                <Label Grid.Row="0" Grid.Column="1" Text="StevneID     " />
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="stevneIDEntry" />
+            </Grid>
+        </Frame>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Poeng oppnådd" />
+                <Entry Grid.Row="1" Grid.Column="0" x:Name="achievedPoints">
+                    <Entry.Behaviors>
+                        <digits:DigitBehavior x:Name="DigitBehaviorAchieved"/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Grid.Row="0" 
+                       Grid.Column="1" 
+                       Text="Maks poeng" />
+
+                <Entry Grid.Row="1" 
+                       Grid.Column="1" 
+                       x:Name="achievablePoints">
+                    <Entry.Behaviors>
+                        <digits:DigitBehavior x:Name="DigitBehaviorAchievable"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+        </Frame>
+        <Button Clicked="Save_Result" 
+                FontSize="Medium" 
+                Text="Lagre nytt resultat" 
+                BackgroundColor="Transparent" 
+                HorizontalOptions="Center" 
+                Image="icon.png" 
+                IsEnabled="{Binding Source={x:Reference DigitBehaviorAchieved}, Path=IsValid}" />
+    </StackLayout>
+</ContentPage>
