@@ -20,14 +20,7 @@ namespace Shooting
             menuList.Add(new MasterPageItem
             {
                 Title = "Figurjakt",
-                Icon = "icon.png",
-                TargetType = typeof(Figurjakt)
-            });
-            //REMOVE THIS
-            menuList.Add(new MasterPageItem
-            {
-                Title = "Test link",
-                Icon = "icon.png",
+                Icon = "hare.png",
                 TargetType = typeof(Figurjakt)
             });
 

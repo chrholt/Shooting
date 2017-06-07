@@ -1,5 +1,6 @@
 ﻿using Shooting.Database;
 using Shooting.Views;
+using Shooting.ViewsDetails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,21 +20,24 @@ namespace Shooting
         {
             InitializeComponent();
             this.database = new ShootingDatabase();
-            //var figurjaktResults = database.GetFigurjaktResults();
-
-            //    figurjaktResultsListView.ItemsSource = figurjaktResults;
+            
             ToolbarItems.Add(new ToolbarItem
             {
-                Icon = "icon.png",
+                Icon = "plus_round_128x128_white_hollow.png",
                 Text = "New Result",
                 Command = new Command(this.GoToRegisterFigurjaktResult)
                 
             });
+
+            
         }
 
         private void figurjaktResultsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            var selectedItem = (Result)e.SelectedItem;
+            var newPage = new FigurjaktDetails(selectedItem);
+            newPage.BindingContext = selectedItem;
+            Navigation.PushAsync(newPage);
         }
 
         protected override void OnAppearing()
