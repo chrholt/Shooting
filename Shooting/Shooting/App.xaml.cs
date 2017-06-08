@@ -36,5 +36,27 @@ namespace Shooting
         {
             // Handle when your app resumes
         }
+
+        public bool DoBack
+        {
+            get
+            {
+                MasterDetailPage mainPage = MainPage as MasterDetailPage;
+                if(mainPage != null)
+                {
+                    bool canDoBack = mainPage.Detail.Navigation.NavigationStack.Count > 1 || mainPage.IsPresented;
+                    if (!canDoBack)
+                    {
+                        mainPage.IsPresented = true;
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                return true;
+            }
+        }
     }
 }

@@ -20,11 +20,11 @@ namespace Shooting
             menuList.Add(new MasterPageItem
             {
                 Title = "Figurjakt",
-                Icon = "hare.png",
+                Icon = "hare_72x72_black.png",
                 TargetType = typeof(Figurjakt)
             });
 
-            menuList.Add(new MasterPageItem {Title = "Test link", Icon = "icon.png", TargetType = typeof(Figurjakt) });
+            menuList.Add(new MasterPageItem {Title = "Test link", Icon = "plus_72x72_333333gray.png", TargetType = typeof(Figurjakt) });
 
             menuListView.ItemsSource = menuList;
 
@@ -33,7 +33,7 @@ namespace Shooting
             settingsSectionList.Add(new MasterPageItem
             {
                 Title = "Innstillinger",
-                Icon = "icon.png",
+                Icon = "plus_72x72_333333gray.png",
                 TargetType = typeof(Settings)
             });
 
@@ -72,5 +72,7 @@ namespace Shooting
             Detail = detailPage;
             IsPresented = false;
         }
+
+        
     }
 }

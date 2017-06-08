@@ -23,17 +23,17 @@
                     <ListView x:Name="menuListView" 
                               VerticalOptions="FillAndExpand" 
                               SeparatorVisibility="None"
-                              ItemSelected="menuListView_ItemSelected">
+                              ItemSelected="menuListView_ItemSelected"
+                              RowHeight="72">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout VerticalOptions="FillAndExpand" 
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="FillAndExpand"
                                                  Orientation="Horizontal" 
                                                  Padding="20,10,0,10"
                                                  Spacing="20">
                                         <Image Source="{Binding Icon}"
-                                               WidthRequest="72"
-                                               HeightRequest="72"
                                                VerticalOptions="Center" />
                                         <Label Text="{Binding Title}"
                                                FontSize="Medium"

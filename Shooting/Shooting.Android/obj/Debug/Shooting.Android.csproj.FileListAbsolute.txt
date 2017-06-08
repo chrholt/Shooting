@@ -188,5 +188,6 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\android
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\res\drawable\bronze_128x128.png
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\res\drawable\gold_128x128.png
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\res\drawable\silver_128x128.png
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\res\drawable\delete_32x32_white.png
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\obj\Debug\Shooting.Android.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.Android\bin\Debug\Shooting.Android.dll.mdb

@@ -44,9 +44,37 @@
 
         <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
             <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
-            <Label Text="Diverse" FontSize="Medium" HorizontalOptions="Center"/>
-            <Label x:Name="qualificationLabel" TextColor="{Binding Source={StaticResource blackText}}" />
             <Image HorizontalOptions="Center" x:Name="qualificationImage" />
+            <Label x:Name="percentageLabel" FontSize="Medium" TextColor="{Binding Source={StaticResource blackText}}" HorizontalOptions="Center"/>
+            <Label x:Name="qualificationLabel" TextColor="{Binding Source={StaticResource blackText}}" HorizontalOptions="Center"/>
+            <StackLayout HeightRequest="20"></StackLayout>
+            <StackLayout>
+                <Label Text="NJJF's minstekrav til ferdighetsmerker" FontSize="Medium"/>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <Image Source="gold_128x128.png" HeightRequest="32"/>
+                        <Label Text="88%" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="1">
+                      <Image Source="silver_128x128.png" HeightRequest="32" />
+                        <Label Text="75%" HorizontalOptions="Center"/>  
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="2">
+                       <Image Source="bronze_128x128.png" HeightRequest="32"/>
+                        <Label Text="60%" HorizontalOptions="Center"/> 
+                    </StackLayout>
+                    
+                    
+                </Grid>
+            </StackLayout>
         </StackLayout>
 
     </Grid>

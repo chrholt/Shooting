@@ -23,18 +23,22 @@ namespace Shooting.ViewsDetails {
         private global::Xamarin.Forms.Label achievablePointsDetailsLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label qualificationLabel;
+        private global::Xamarin.Forms.Image qualificationImage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image qualificationImage;
+        private global::Xamarin.Forms.Label percentageLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label qualificationLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(FigurjaktDetails));
             achievedPointsDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("achievedPointsDetailsLabel");
             achievablePointsDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("achievablePointsDetailsLabel");
-            qualificationLabel = this.FindByName<global::Xamarin.Forms.Label>("qualificationLabel");
             qualificationImage = this.FindByName<global::Xamarin.Forms.Image>("qualificationImage");
+            percentageLabel = this.FindByName<global::Xamarin.Forms.Label>("percentageLabel");
+            qualificationLabel = this.FindByName<global::Xamarin.Forms.Label>("qualificationLabel");
         }
     }
 }

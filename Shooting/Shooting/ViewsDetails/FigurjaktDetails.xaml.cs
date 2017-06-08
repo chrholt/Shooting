@@ -27,11 +27,14 @@ namespace Shooting.ViewsDetails
 
             //SET CONTENT
             FigurjaktResult res = JsonConvert.DeserializeObject<FigurjaktResult>(result.Results);
+            var percentage = (res.AchievedPoints * 100) / res.AchievablePoints;
 
             achievablePointsDetailsLabel.Text = res.AchievablePoints.ToString();
             achievedPointsDetailsLabel.Text = res.AchievedPoints.ToString();
 
-            var percentage = (res.AchievedPoints * 100) / res.AchievablePoints;
+            percentageLabel.Text = percentage.ToString() + "%";
+
+            
             string qualificationMark;
             string qualImage = "";
 
@@ -42,11 +45,11 @@ namespace Shooting.ViewsDetails
             else { qualificationMark = ""; }
             if (String.IsNullOrEmpty(qualificationMark))
             {
-            qualificationLabel.Text = String.Format("I denne konkurransen ble {0} % av maksimal poengsum oppnådd. Det betyr at du dessverre ikke klarte å oppnå NJFF's minstekrav for noe ferdighetsmerke.", percentage);
+            qualificationLabel.Text = "";
             }
             else
             {
-            qualificationLabel.Text = String.Format("I denne konkurransen ble {0} % av maksimal poengsum oppnådd. Det betyr at du oppnådde NJFF's minstekrav for ferdighetsmerket {1}.", percentage, qualificationMark);
+            qualificationLabel.Text = String.Format("I denne konkurransen oppfylte du NJFF's minstekrav for ferdighetsmerket {0}.", qualificationMark);
             }
             qualificationImage.Source = ImageSource.FromFile(qualImage);
 
@@ -54,7 +57,7 @@ namespace Shooting.ViewsDetails
             //DELETE
             ToolbarItems.Add(new ToolbarItem
             {
-                Icon = "delete_32x32.png",
+                Icon = "delete_32x32_white.png",
                 Text = "Delete Result",
                 Command = new Command(this.DeleteResult)
 

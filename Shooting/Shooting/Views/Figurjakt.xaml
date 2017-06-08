@@ -6,12 +6,13 @@
     <ScrollView HorizontalOptions="FillAndExpand">
         <Label Text="This is Figurjakt page!" />
         <StackLayout Margin="10,30,10,20">
-            <Label Text="Mine resultater" FontSize="Large" HorizontalOptions="Center" TextColor="{Binding Source={StaticResource blackText}}"/>
+            <Label Text="Mine resultater" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{Binding Source={StaticResource blackText}}"/>
             <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
             <ListView x:Name="figurjaktResultsListView"
                       VerticalOptions="FillAndExpand"
                       ItemSelected="figurjaktResultsListView_ItemSelected"
-                      ItemsSource="{Binding Path=figurjaktResults}">
+                      ItemsSource="{Binding Path=figurjaktResults}"
+                      Margin="0,15,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

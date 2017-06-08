@@ -22,6 +22,13 @@ namespace Shooting.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
+
+        public override void OnBackPressed()
+        {
+            this.MoveTaskToBack(true);
+            //base.OnBackPressed();
+
+        }
     }
 }
 
