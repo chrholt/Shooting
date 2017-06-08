@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shooting.Views.FrontPage">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Image Source="icon.png" HorizontalOptions="Center" VerticalOptions="Center" />
+        <Label Text="Forside" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large"/>
+    </StackLayout>
+</ContentPage>

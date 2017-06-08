@@ -3,6 +3,7 @@ using Shooting.Database;
 using Shooting.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,17 @@ namespace Shooting.Views
     public partial class FigurjaktCreate : ContentPage
     {
         private ShootingDatabase database;
+        private ObservableCollection<Result> oc;
         public FigurjaktCreate()
         {
             InitializeComponent();
             this.database = new ShootingDatabase();
-
+        }
+        public FigurjaktCreate(ObservableCollection<Result> figurjaktResults)
+        {
+            InitializeComponent();
+            this.oc = figurjaktResults;
+            this.database = new ShootingDatabase();
         }
 
         private void Save_Result(object sender, EventArgs e)
@@ -38,8 +45,13 @@ namespace Shooting.Views
                     AchievedPoints = Convert.ToInt32(achievedPoints.Text)
                 })
             };
-
+            oc.Add(result);
             database.SaveResult(result);
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
     }
 }

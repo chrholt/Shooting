@@ -40,14 +40,19 @@ namespace Shooting.Database
             });
         }
 
-        public IEnumerable<Result> GetFigurjaktResults()
+        public ObservableCollection<Result> GetFigurjaktResults()
         {
+            ObservableCollection<Result> oc = new ObservableCollection<Result>();
             lock (collisionLock)
             {
                 var query = from res in database.Table<Result>()
                             where res.Type == "Figurjakt"
                             select res;
-                return query.AsEnumerable();
+                foreach(var r in query)
+                {
+                    oc.Add(r);
+                }
+                return oc;
             }
         }
 

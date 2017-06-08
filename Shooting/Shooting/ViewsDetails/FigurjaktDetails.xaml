@@ -5,8 +5,9 @@
              Title="{Binding Name}">
     <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -27,9 +28,27 @@
             <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding StevneID}" />
         </StackLayout>
         <StackLayout Grid.Row="1" Grid.Column="1">
-            <Label Text="Fortsett her!" />
-            <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding Result}" />
+            <Label Text="Stevnetype" />
+            <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding Type}" />
         </StackLayout>
+
+        <StackLayout Grid.Row="2" Grid.Column="0">
+            <Label Text="Poeng oppnådd" />
+            <Label TextColor="{Binding Source={StaticResource blackText}}" x:Name="achievedPointsDetailsLabel" />
+        </StackLayout>
+        <StackLayout Grid.Row="2" Grid.Column="1">
+            <Label Text="Maks poeng" />
+            <Label TextColor="{Binding Source={StaticResource blackText}}" x:Name="achievablePointsDetailsLabel" />
+        </StackLayout>
+        
+
+        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
+            <Label Text="Diverse" FontSize="Medium" HorizontalOptions="Center"/>
+            <Label x:Name="qualificationLabel" TextColor="{Binding Source={StaticResource blackText}}" />
+            <Image HorizontalOptions="Center" x:Name="qualificationImage" />
+        </StackLayout>
+
     </Grid>
     
 </ContentPage>

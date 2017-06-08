@@ -3,6 +3,7 @@ using Shooting.Views;
 using Shooting.ViewsDetails;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace Shooting
     public partial class Figurjakt : ContentPage
     {
         private ShootingDatabase database;
+        private ObservableCollection<Result> figurjaktResults;
+        
         public Figurjakt()
         {
             InitializeComponent();
@@ -28,14 +31,14 @@ namespace Shooting
                 Command = new Command(this.GoToRegisterFigurjaktResult)
                 
             });
-
-            
+            figurjaktResults = database.GetFigurjaktResults();
+            figurjaktResultsListView.ItemsSource = figurjaktResults;
         }
 
         private void figurjaktResultsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedItem = (Result)e.SelectedItem;
-            var newPage = new FigurjaktDetails(selectedItem);
+            var newPage = new FigurjaktDetails(selectedItem, figurjaktResults);
             newPage.BindingContext = selectedItem;
             Navigation.PushAsync(newPage);
         }
@@ -43,12 +46,13 @@ namespace Shooting
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            this.BindingContext = this.database;
+            
+            
         }
 
         private void GoToRegisterFigurjaktResult()
         {
-            var newPage = new NavigationPage((Page)Activator.CreateInstance(typeof(FigurjaktCreate)));
+            var newPage = new FigurjaktCreate(figurjaktResults);
             Navigation.PushAsync(newPage);
         }
     }

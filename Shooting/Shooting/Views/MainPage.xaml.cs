@@ -24,6 +24,8 @@ namespace Shooting
                 TargetType = typeof(Figurjakt)
             });
 
+            menuList.Add(new MasterPageItem {Title = "Test link", Icon = "icon.png", TargetType = typeof(Figurjakt) });
+
             menuListView.ItemsSource = menuList;
 
             //FILL SETTINGS SECTION WITH LINKS TO PAGES
@@ -39,7 +41,7 @@ namespace Shooting
             settingsSectionListView.ItemsSource = settingsSectionList;
 
             //SETS DETAIL PAGE
-            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(FigurjaktCreate)));
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(FrontPage)));
             detailPage.BarBackgroundColor = Color.FromHex("#666666");
             detailPage.BarTextColor = Color.FromHex("#FFFFFF");
             Detail = detailPage;
