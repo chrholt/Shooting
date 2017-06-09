@@ -2574,7 +2574,7 @@ containing a value of this type.
         public static final int mr_ic_pause_light=0x7f0200ad;
         public static final int mr_ic_play_dark=0x7f0200ae;
         public static final int mr_ic_play_light=0x7f0200af;
-        public static final int notification_template_icon_bg=0x7f0200bc;
+        public static final int notification_template_icon_bg=0x7f0200bd;
         public static final int plus_128x128_333333gray=0x7f0200b0;
         public static final int plus_128x128_666666gray=0x7f0200b1;
         public static final int plus_72x72_333333gray=0x7f0200b2;
@@ -2586,7 +2586,8 @@ containing a value of this type.
         public static final int plus_round_128x128_white_hollow=0x7f0200b8;
         public static final int plus_round_72x72_333333gray=0x7f0200b9;
         public static final int plus_round_72x72_666666gray=0x7f0200ba;
-        public static final int silver_128x128=0x7f0200bb;
+        public static final int save_128x128_white_hollow=0x7f0200bb;
+        public static final int silver_128x128=0x7f0200bc;
     }
     public static final class id {
         public static final int action0=0x7f07008b;

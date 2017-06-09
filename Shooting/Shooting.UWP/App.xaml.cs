@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Toasts.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms;
+
 
 namespace Shooting.UWP
 {
@@ -59,6 +62,8 @@ namespace Shooting.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+
+                
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

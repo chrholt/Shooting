@@ -10,9 +10,16 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="Navn" HorizontalOptions="Fill" />
                 <Entry Grid.Row="1" x:Name="nameEntry" HorizontalOptions="Fill"/>
+                <Label x:Name="nameErrorLabel" 
+                       FontSize="Micro" 
+                       IsVisible="false" 
+                       TextColor="Red" 
+                       Text="Vennligst angi navn"
+                       Grid.Row="2"/>
             </Grid>
 
         </Frame>
@@ -40,6 +47,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -64,14 +72,29 @@
                         <digits:DigitBehavior x:Name="DigitBehaviorAchievable"/>
                     </Entry.Behaviors>
                 </Entry>
+
+                <Label x:Name="achievedPointsErrorLabel" 
+                       FontSize="Micro" 
+                       IsVisible="false" 
+                       TextColor="Red" 
+                       Text="Ugyldig - kun heltall"
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+                <Label x:Name="achievablePointsErrorLabel" 
+                       FontSize="Micro" 
+                       IsVisible="false" 
+                       TextColor="Red" 
+                       Text="Ugyldig - kun heltall"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
             </Grid>
         </Frame>
-        <Button Clicked="Save_Result" 
+        <!--<Button Clicked="Save_Result" 
                 FontSize="Medium" 
                 Text="Lagre nytt resultat" 
                 BackgroundColor="Transparent" 
                 HorizontalOptions="Center" 
                 Image="icon.png" 
-                IsEnabled="{Binding Source={x:Reference DigitBehaviorAchieved}, Path=IsValid}" />
+                IsEnabled="{Binding Source={x:Reference DigitBehaviorAchieved}, Path=IsValid}" />-->
     </StackLayout>
 </ContentPage>

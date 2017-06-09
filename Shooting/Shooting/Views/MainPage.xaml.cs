@@ -59,6 +59,7 @@ namespace Shooting
             detailPage.BarTextColor = Color.FromHex("#FFFFFF");
             Detail = detailPage;
             IsPresented = false;
+ 
         }
 
         private void settingsSectionListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -71,8 +72,9 @@ namespace Shooting
             detailPage.BarTextColor = Color.FromHex("#FFFFFF");
             Detail = detailPage;
             IsPresented = false;
+
         }
 
-        
+
     }
 }
