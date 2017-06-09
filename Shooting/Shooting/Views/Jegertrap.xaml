@@ -3,30 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Shooting.Jegertrap"
              Title="Jegertrap">
-    <Label Text="This is Jegertrap page!" />
+    <ScrollView HorizontalOptions="FillAndExpand">
+        <Label Text="This is Jegertrap page!" />
+        <StackLayout Margin="10,30,10,20">
+            <Label Text="Mine resultater" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{Binding Source={StaticResource blackText}}"/>
+            <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
+            <ListView x:Name="jegertrapResultsListView"
+                      VerticalOptions="FillAndExpand"
+                      ItemSelected="jegertrapResultsListView_ItemSelected"
+                      ItemsSource="{Binding Path=jegertrapResults}"
+                      Margin="0,15,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Spacing="10"
+                                         HeightRequest="30">
+                                <Label TextColor="Black" Text="{Binding Name}" />
+                                <Label TextColor="Black" Text="-" />
+                                <Label TextColor="Black" Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-    <StackLayout>
-        
-        <Frame OutlineColor="Lime">
-            <StackLayout>
-                <Label Text="Post 1" TextColor="Black" FontAttributes="Italic"/>
-                <StackLayout Orientation="Horizontal">
+        </StackLayout>
 
-                    <StackLayout>
-                        <Label Text="Shot 1" />
-                        <Entry Placeholder="Hits - shot 1"></Entry>
-                    </StackLayout>
-
-                    <StackLayout>
-                        <Label Text="Shot 2" />
-                        <Entry Placeholder="Hits - shot 2"></Entry>
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="Single shot" />
-                        <Switch />
-                    </StackLayout>
-                </StackLayout>
-            </StackLayout>
-        </Frame>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>
