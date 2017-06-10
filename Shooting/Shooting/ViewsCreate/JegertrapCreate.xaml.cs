@@ -1,0 +1,118 @@
+﻿using Newtonsoft.Json;
+using Shooting.Database;
+using Shooting.Models;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Shooting.ViewsCreate
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class JegertrapCreate : ContentPage
+    {
+        private const string digitRegex = @"^[0-9]+$";
+        private ShootingDatabase database;
+        private ObservableCollection<Result> oc;
+
+        public JegertrapCreate()
+        {
+            InitializeComponent();
+            this.database = new ShootingDatabase();
+
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Icon = "save_128x128_white_hollow.png",
+                Text = "Save",
+                Command = new Command(this.Save_Result)
+            });
+        }
+
+        public JegertrapCreate(ObservableCollection<Result> jegertrapResults)
+        {
+            InitializeComponent();
+            this.oc = jegertrapResults;
+            this.database = new ShootingDatabase();
+
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Icon = "save_128x128_white_hollow.png",
+                Text = "Save",
+                Command = new Command(this.Save_Result)
+            });
+        }
+
+        private void Save_Result()
+        {
+            bool pointsAchievedValid = false;
+            bool pointsAchievableValid = false;
+            bool nameOK = false;
+            //VALIDATION OF NAME ENTRY
+            if (String.IsNullOrWhiteSpace(nameEntry.Text))
+            {
+                nameErrorLabel.IsVisible = true;
+            }
+            else
+            {
+                nameOK = true;
+                nameErrorLabel.IsVisible = false;
+            }
+            //END - VALIDATION OF NAME ENTRY
+
+            //VALIDATION OF POINTS ACHIEVABLE ENTRY
+            if (!Regex.IsMatch(achievablePoints.Text, digitRegex))
+            {
+                achievablePointsErrorLabel.IsVisible = true;
+            }
+            else
+            {
+                pointsAchievableValid = true;
+                achievablePointsErrorLabel.IsVisible = false;
+
+            }
+            //END - VALIDATION OF POINTS ACHIEVABLE ENTRY
+
+            //VALIDATION OF POINTS ACHIEBED ENTRY
+            if (!Regex.IsMatch(achievedPoints.Text, digitRegex))
+            {
+                achievedPointsErrorLabel.IsVisible = true;
+            }
+            else
+            {
+                pointsAchievedValid = true;
+                achievedPointsErrorLabel.IsVisible = false;
+
+            }
+            //END - VALIDATION OF POINTS ACHIEBED ENTRY
+
+            if (nameOK && pointsAchievedValid && pointsAchievableValid)
+            {
+                Result result = new Result
+                {
+                    Date = datePicker.Date,
+                    Name = nameEntry.Text,
+                    StevneID = stevneIDEntry.Text,
+                    Type = "Jegertrap",
+                    Results = JsonConvert.SerializeObject(new JegertrapResult
+                    {
+                        AchievablePoints = Convert.ToInt32(achievablePoints.Text),
+                        AchievedPoints = Convert.ToInt32(achievedPoints.Text)
+                    })
+                };
+                oc.Add(result);
+                database.SaveResult(result);
+                Navigation.PopAsync();
+            }
+            else
+            {
+
+            }
+        }
+    }
+}

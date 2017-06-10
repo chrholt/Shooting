@@ -1,4 +1,6 @@
 ﻿using Shooting.Database;
+using Shooting.ViewsCreate;
+using Shooting.ViewsDetails;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,22 +31,22 @@ namespace Shooting
                 Command = new Command(this.GoToRegisterJegertrapResult)
 
             });
-            jegertrapResults = database.GetFigurjaktResults();
+            jegertrapResults = database.GetJegertrapResults();
             jegertrapResultsListView.ItemsSource = jegertrapResults;
         }
 
         private void jegertrapResultsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedItem = (Result)e.SelectedItem;
-            //var newPage = new JegertrapDetails(selectedItem, jegertrapResults);
-            //newPage.BindingContext = selectedItem;
-            //Navigation.PushAsync(newPage);
+            var newPage = new JegertrapDetails(selectedItem, jegertrapResults);
+            newPage.BindingContext = selectedItem;
+            Navigation.PushAsync(newPage);
         }
 
         private void GoToRegisterJegertrapResult()
         {
-            //var newPage = new JegertrapCreate(jegertrapResults);
-            //Navigation.PushAsync(newPage);
+            var newPage = new JegertrapCreate(jegertrapResults);
+            Navigation.PushAsync(newPage);
         }
 
         protected override void OnAppearing()

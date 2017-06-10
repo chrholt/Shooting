@@ -24,7 +24,11 @@ namespace Shooting
                 TargetType = typeof(Figurjakt)
             });
 
-            menuList.Add(new MasterPageItem {Title = "Test link", Icon = "plus_72x72_333333gray.png", TargetType = typeof(Figurjakt) });
+            menuList.Add(new MasterPageItem
+            {
+                Title = "Jegertrap",
+                Icon = "targetclay.png",
+                TargetType = typeof(Jegertrap) });
 
             menuListView.ItemsSource = menuList;
 

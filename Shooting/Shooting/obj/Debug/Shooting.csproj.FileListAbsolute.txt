@@ -51,5 +51,9 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.pdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.Views.FrontPage.xaml.g.cs
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.csprojResolveAssemblyReference.cache
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.ViewsCreate.JegertrapCreate.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.ViewsDetails.JegertrapDetails.xaml.g.cs
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
+E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb

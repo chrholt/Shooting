@@ -2245,8 +2245,8 @@ namespace Shooting.Droid
 			// aapt resource value: 0x7f0200af
 			public const int mr_ic_play_light = 2130837679;
 			
-			// aapt resource value: 0x7f0200bd
-			public const int notification_template_icon_bg = 2130837693;
+			// aapt resource value: 0x7f0200be
+			public const int notification_template_icon_bg = 2130837694;
 			
 			// aapt resource value: 0x7f0200b0
 			public const int plus_128x128_333333gray = 2130837680;
@@ -2286,6 +2286,9 @@ namespace Shooting.Droid
 			
 			// aapt resource value: 0x7f0200bc
 			public const int silver_128x128 = 2130837692;
+			
+			// aapt resource value: 0x7f0200bd
+			public const int targetclay = 2130837693;
 			
 			static Drawable()
 			{
