@@ -23,7 +23,7 @@ namespace Shooting.ViewsDetails {
         private global::Xamarin.Forms.Label achievablePointsDetailsLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label hitsLabel;
+        private global::Xamarin.Forms.Label SeriesLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView jegertrapResultSeriesListView;
@@ -33,7 +33,7 @@ namespace Shooting.ViewsDetails {
             this.LoadFromXaml(typeof(JegertrapDetails));
             achievedPointsDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("achievedPointsDetailsLabel");
             achievablePointsDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("achievablePointsDetailsLabel");
-            hitsLabel = this.FindByName<global::Xamarin.Forms.Label>("hitsLabel");
+            SeriesLabel = this.FindByName<global::Xamarin.Forms.Label>("SeriesLabel");
             jegertrapResultSeriesListView = this.FindByName<global::Xamarin.Forms.ListView>("jegertrapResultSeriesListView");
         }
     }

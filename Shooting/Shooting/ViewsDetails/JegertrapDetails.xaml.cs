@@ -36,7 +36,6 @@ namespace Shooting.ViewsDetails
             achievablePointsDetailsLabel.Text = res.AchievablePoints.ToString();
             achievedPointsDetailsLabel.Text = res.AchievedPoints.ToString();
 
-            hitsLabel.Text = "Dine treff: " + hits.ToString();
 
             //ADD TOOLBARITEM
             //DELETE

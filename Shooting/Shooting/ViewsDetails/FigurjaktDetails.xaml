@@ -9,6 +9,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
@@ -40,7 +41,7 @@
             <Label Text="Maks poeng" />
             <Label TextColor="{Binding Source={StaticResource blackText}}" x:Name="achievablePointsDetailsLabel" />
         </StackLayout>
-        
+
 
         <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
             <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
@@ -64,19 +65,18 @@
                         <Label Text="88%" HorizontalOptions="Center"/>
                     </StackLayout>
                     <StackLayout Grid.Row="0" Grid.Column="1">
-                      <Image Source="silver_128x128.png" HeightRequest="32" />
-                        <Label Text="75%" HorizontalOptions="Center"/>  
+                        <Image Source="silver_128x128.png" HeightRequest="32" />
+                        <Label Text="75%" HorizontalOptions="Center"/>
                     </StackLayout>
                     <StackLayout Grid.Row="0" Grid.Column="2">
-                       <Image Source="bronze_128x128.png" HeightRequest="32"/>
-                        <Label Text="60%" HorizontalOptions="Center"/> 
+                        <Image Source="bronze_128x128.png" HeightRequest="32"/>
+                        <Label Text="60%" HorizontalOptions="Center"/>
                     </StackLayout>
-                    
-                    
+
+
                 </Grid>
             </StackLayout>
         </StackLayout>
-
     </Grid>
     
 </ContentPage>

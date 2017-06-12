@@ -89,17 +89,31 @@ namespace Shooting.ViewsCreate
 
             //VALIDATION OF POINTS ACHIEBED ENTRY
             entriesValid = new List<bool>();
-            foreach(var i in entries)
+            var seriesNumber = 0;
+            foreach (var i in entries)
             {
+                seriesNumber++;
+                
                 var ok = Regex.IsMatch(i.Text, digitRegex);
+                string medal, icon;                
                 if (ok)
                 {
-                    totalHits += Convert.ToInt32(i.Text);
+                    var hits = Convert.ToInt32(i.Text);
+
+                    totalHits += hits;
+
+                    if (hits >= 24) { icon = "gold_16x16.png"; medal = "Gull"; }
+                    else if (hits >= 21) { icon = "silver_16x16.png"; medal = "Sølv"; }
+                    else if (hits >= 17) { icon = "bronze_16x16.png"; medal = "Bronse"; }
+                    else { icon = ""; medal = ""; }
+
                     jegertrapSeries.Add(new JegertrapSeries
                     {
                         AchievablePoints = 25,
                         AchievedPoints = Convert.ToInt32(i.Text),
-                        SeriesName = "Serie "+series
+                        SeriesName = "Serie "+seriesNumber,
+                        Icon = icon,
+                        Medal = medal
                     });
                     entriesValid.Add(true);
                 }
@@ -111,7 +125,16 @@ namespace Shooting.ViewsCreate
 
             //END - VALIDATION OF POINTS ACHIEBED ENTRY
 
-            if (nameOK && pointsAchievedValid)
+            if (!nameOK)
+            {
+                DisplayAlert("Navn", "Navn kan ikke være tomt", "OK");
+
+            }
+            else if(!pointsAchievedValid)
+            {
+                DisplayAlert("Treff", "Angi treff med kun heltall", "OK");
+            }
+            else if (nameOK && pointsAchievedValid)
             {
                 Result result = new Result
                 {
@@ -121,7 +144,7 @@ namespace Shooting.ViewsCreate
                     Type = "Jegertrap",
                     Results = JsonConvert.SerializeObject(new JegertrapResult
                     {
-                        AchievablePoints = series*25,
+                        AchievablePoints = series * 25,
                         AchievedPoints = totalHits,
                         Series = jegertrapSeries
                     })
@@ -130,19 +153,15 @@ namespace Shooting.ViewsCreate
                 database.SaveResult(result);
                 Navigation.PopAsync();
             }
-            else if(!pointsAchievedValid)
-            {
-                DisplayAlert("ERROR", "Angi treff med kun heltall", "OK");
-            }
             else { }
         }
 
         private void AddSeries(object sender, EventArgs args)
         {
+            series++;
             //FIND GRID AND ADD ROW
             Grid grid = seriesGrid;
             rows = seriesGrid.RowDefinitions.Count;
-            series = rows / 3;
             seriesGrid.RowDefinitions.Add(new RowDefinition());
             seriesGrid.RowDefinitions.Add(new RowDefinition());
             seriesGrid.RowDefinitions.Add(new RowDefinition());
@@ -222,7 +241,7 @@ namespace Shooting.ViewsCreate
 
             
 
-            series++;
+            
             checkerText.Text = series + " serier";
             var elements = seriesGrid.Children.OfType<Entry>().Where(r => r.ClassId == "99");
             var count = elements.Count();

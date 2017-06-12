@@ -10,51 +10,72 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.Row="0" Grid.Column="0">
+            
+            <StackLayout Grid.Row="0" 
+                         Grid.Column="0">
                 <Label Text="Navn" />
-                <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding Name}"/>
+                <Label TextColor="{Binding Source={StaticResource blackText}}" 
+                       Text="{Binding Name}"/>
             </StackLayout>
-            <StackLayout Grid.Row="0" Grid.Column="1">
+            <StackLayout Grid.Row="0" 
+                         Grid.Column="1">
                 <Label Text="Dato" />
-                <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" />
+                <Label TextColor="{Binding Source={StaticResource blackText}}" 
+                       Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" />
             </StackLayout>
-            <StackLayout Grid.Row="1" Grid.Column="0">
+            <StackLayout Grid.Row="1" 
+                         Grid.Column="0">
                 <Label Text="Stevne ID" />
-                <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding StevneID}" />
+                <Label TextColor="{Binding Source={StaticResource blackText}}" 
+                       Text="{Binding StevneID}" />
             </StackLayout>
-            <StackLayout Grid.Row="1" Grid.Column="1">
+            <StackLayout Grid.Row="1" 
+                         Grid.Column="1">
                 <Label Text="Stevnetype" />
-                <Label TextColor="{Binding Source={StaticResource blackText}}" Text="{Binding Type}" />
+                <Label TextColor="{Binding Source={StaticResource blackText}}" 
+                       Text="{Binding Type}" />
             </StackLayout>
 
-            <StackLayout Grid.Row="2" Grid.Column="0">
-                <Label Text="Poeng oppnådd" />
-                <Label TextColor="{Binding Source={StaticResource blackText}}" x:Name="achievedPointsDetailsLabel" />
+            <StackLayout Grid.Row="2" 
+                         Grid.Column="0">
+                <Label Text="Dine treff" />
+                <Label TextColor="{Binding Source={StaticResource blackText}}" 
+                       x:Name="achievedPointsDetailsLabel" />
             </StackLayout>
-            <StackLayout Grid.Row="2" Grid.Column="1">
-                <Label Text="Maks poeng" />
-                <Label TextColor="{Binding Source={StaticResource blackText}}" x:Name="achievablePointsDetailsLabel" />
+            <StackLayout Grid.Row="2" 
+                         Grid.Column="1">
+                <Label Text="Maks treff" />
+                <Label TextColor="{Binding Source={StaticResource blackText}}" 
+                       x:Name="achievablePointsDetailsLabel" />
             </StackLayout>
-            <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
-                <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
-                <Label x:Name="hitsLabel" FontSize="Medium" TextColor="{Binding Source={StaticResource blackText}}" HorizontalOptions="Center"/>
+            <StackLayout Grid.Row="3" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="2">
+                <BoxView HeightRequest="2" 
+                         VerticalOptions="Start" 
+                         HorizontalOptions="FillAndExpand" 
+                         BackgroundColor="Black" />
+                <Label x:Name="SeriesLabel"                  
+                       FontSize="Medium" 
+                       TextColor="{Binding Source={StaticResource blackText}}" 
+                       HorizontalOptions="Center"
+                       Text="Serier"/>
+                <StackLayout HeightRequest="20"></StackLayout>
+                <StackLayout>
                 <ListView x:Name="jegertrapResultSeriesListView"
-                      VerticalOptions="FillAndExpand"
-                      ItemsSource="{Binding Path=jegertrapResultSeries}"
-                      Margin="0,15,0,0"
-                          HasUnevenRows="True">
+                          ItemsSource="{Binding Path=jegertrapResultSeries}"
+                          RowHeight="75">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid>
+                                <Grid Margin="0,15,0,0">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition />
                                         <RowDefinition />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
@@ -62,64 +83,93 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
+                                        <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <Label Text="{Binding SeriesName}" 
                                            TextColor="{Binding Source={StaticResource blackText}}"
                                            Grid.Row="0"
-                                           Grid.ColumnSpan="3"/>
-                                    
+                                           Grid.RowSpan="2"
+                                           Grid.Column="0"
+                                           VerticalOptions="Center"/>
+
                                     <Label Text="Treff"
-                                           Grid.Row="1"
-                                           Grid.Column="1"/>
+                                           Grid.Row="0"
+                                           Grid.Column="1"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
 
                                     <Label TextColor="{Binding Source={StaticResource blackText}}" 
                                            Text="{Binding AchievedPoints}"
-                                           Grid.Row="2"
-                                           Grid.Column="1"/>
+                                           Grid.Row="1"
+                                           Grid.Column="1"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
 
                                     <Label Text="Av"
-                                           Grid.Row="1"
-                                           Grid.Column="2"/>
+                                           Grid.Row="0"
+                                           Grid.Column="2"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
 
                                     <Label TextColor="{Binding Source={StaticResource blackText}}" 
                                            Text="{Binding AchievablePoints}"
-                                           Grid.Row="2"
-                                           Grid.Column="2"/>
+                                           Grid.Row="1"
+                                           Grid.Column="2"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+
+                                    <Label TextColor="{Binding Source={StaticResource blackText}}"
+                                           Text="{Binding Medal}"
+                                           Grid.Row="0"
+                                           Grid.Column="3"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+
+                                    <Image Source="{Binding Icon}" 
+                                           HeightRequest="16"
+                                           Grid.Row="1"
+                                           Grid.Column="3"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
                                 </Grid>
-                                
+
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <StackLayout HeightRequest="20"></StackLayout>
-                <StackLayout>
-                    <Label Text="NJJF's minstekrav til ferdighetsmerker" FontSize="Medium"/>
-                    <Label Text="Gjelder pr. serie" FontSize="Small"/>
-                    <Grid >
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <StackLayout Grid.Row="0" Grid.Column="0">
-                            <Image Source="gold_128x128.png" HeightRequest="32"/>
-                            <Label Text="24 treff" HorizontalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="0" Grid.Column="1">
-                            <Image Source="silver_128x128.png" HeightRequest="32" />
-                            <Label Text="21 treff" HorizontalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="0" Grid.Column="2">
-                            <Image Source="bronze_128x128.png" HeightRequest="32"/>
-                            <Label Text="17 treff" HorizontalOptions="Center"/>
-                        </StackLayout>
-
-
-                    </Grid>
                 </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="4"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2">
+                <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" Margin="0,15,0,0" />
+                <Label Text="NJJF's minstekrav til ferdighetsmerker" FontSize="Medium" Margin="0,15,0,0"/>
+                <Label Text="Gjelder pr. serie" FontSize="Small"/>
+                <StackLayout HeightRequest="20"></StackLayout>
+                <Grid Margin="0,15,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <Image Source="gold_32x32.png" HeightRequest="32"/>
+                        <Label Text="24 treff" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="1">
+                        <Image Source="silver_32x32.png" HeightRequest="32" />
+                        <Label Text="21 treff" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="2">
+                        <Image Source="bronze_32x32.png" HeightRequest="32"/>
+                        <Label Text="17 treff" HorizontalOptions="Center"/>
+                    </StackLayout>
+
+
+                </Grid>
             </StackLayout>
         </Grid>
     </ScrollView>
