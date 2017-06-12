@@ -1,2 +1,0 @@
-E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting.UWP\Shooting.UWP.csproj;x86
-E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\Shooting.csproj;neutral
