@@ -243,9 +243,6 @@ namespace Shooting.ViewsCreate
 
             
             checkerText.Text = series + " serier";
-            var elements = seriesGrid.Children.OfType<Entry>().Where(r => r.ClassId == "99");
-            var count = elements.Count();
-            var a = 1 + 2;
         }
 
         public static bool AreAllTrue(List<bool> values)
