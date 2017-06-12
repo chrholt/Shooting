@@ -15,7 +15,7 @@ namespace Shooting
         public static readonly BindablePropertyKey IsValidPropertyKey = BindableProperty.CreateReadOnly(
             "IsValid", 
             typeof(bool), 
-            typeof(DigitBehavior), 
+            typeof(DigitBehavior),
             false);
 
         public static readonly BindableProperty IsValidProperty = IsValidPropertyKey.BindableProperty;
@@ -41,9 +41,9 @@ namespace Shooting
         {
             Entry entry;
             entry = (Entry)sender;
-            this.IsValid = Regex.IsMatch(e.NewTextValue, digitRegex);
+            this.IsValid = !Regex.IsMatch(e.NewTextValue, digitRegex);
 
-            entry.TextColor = IsValid ? Color.Default : Color.Red;
+            entry.TextColor = IsValid ? Color.Red : Color.Default;
         }
 
         protected override void OnDetachingFrom(Entry bindable)

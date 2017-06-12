@@ -26,11 +26,15 @@ namespace Shooting.ViewsDetails {
         private global::Xamarin.Forms.Label hitsLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView jegertrapResultSeriesListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(JegertrapDetails));
             achievedPointsDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("achievedPointsDetailsLabel");
             achievablePointsDetailsLabel = this.FindByName<global::Xamarin.Forms.Label>("achievablePointsDetailsLabel");
             hitsLabel = this.FindByName<global::Xamarin.Forms.Label>("hitsLabel");
+            jegertrapResultSeriesListView = this.FindByName<global::Xamarin.Forms.ListView>("jegertrapResultSeriesListView");
         }
     }
 }

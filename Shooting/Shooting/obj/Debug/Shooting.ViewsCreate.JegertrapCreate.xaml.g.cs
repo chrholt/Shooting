@@ -29,16 +29,16 @@ namespace Shooting.ViewsCreate {
         private global::Xamarin.Forms.Entry stevneIDEntry;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label checkerText;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Grid seriesGrid;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry achievedPoints;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Shooting.DigitBehavior DigitBehaviorAchieved;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry achievablePoints;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Shooting.DigitBehavior DigitBehaviorAchievable;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label achievedPointsErrorLabel;
@@ -53,10 +53,10 @@ namespace Shooting.ViewsCreate {
             nameErrorLabel = this.FindByName<global::Xamarin.Forms.Label>("nameErrorLabel");
             datePicker = this.FindByName<global::Xamarin.Forms.DatePicker>("datePicker");
             stevneIDEntry = this.FindByName<global::Xamarin.Forms.Entry>("stevneIDEntry");
+            checkerText = this.FindByName<global::Xamarin.Forms.Label>("checkerText");
+            seriesGrid = this.FindByName<global::Xamarin.Forms.Grid>("seriesGrid");
             achievedPoints = this.FindByName<global::Xamarin.Forms.Entry>("achievedPoints");
-            DigitBehaviorAchieved = this.FindByName<global::Shooting.DigitBehavior>("DigitBehaviorAchieved");
             achievablePoints = this.FindByName<global::Xamarin.Forms.Entry>("achievablePoints");
-            DigitBehaviorAchievable = this.FindByName<global::Shooting.DigitBehavior>("DigitBehaviorAchievable");
             achievedPointsErrorLabel = this.FindByName<global::Xamarin.Forms.Label>("achievedPointsErrorLabel");
             achievablePointsErrorLabel = this.FindByName<global::Xamarin.Forms.Label>("achievablePointsErrorLabel");
         }

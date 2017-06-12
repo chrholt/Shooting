@@ -10,5 +10,7 @@ namespace Shooting.Models
     {
         public int AchievablePoints { get; set; }
         public int AchievedPoints { get; set; }
+        public string SeriesName { get; set; }
+
     }
 }

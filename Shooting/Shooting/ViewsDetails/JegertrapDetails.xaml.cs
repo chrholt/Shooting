@@ -18,6 +18,7 @@ namespace Shooting.ViewsDetails
     {
         private ShootingDatabase database;
         private ObservableCollection<Result> jegertrapResults;
+        private ObservableCollection<JegertrapSeries> jegertrapResultSeries;
         private Result result;
 
         public JegertrapDetails(Result result, ObservableCollection<Result> jegertrapResults)
@@ -25,11 +26,13 @@ namespace Shooting.ViewsDetails
             InitializeComponent();
             this.result = result;
             this.jegertrapResults = jegertrapResults;
-
+            
             //SET CONTENT
             JegertrapResult res = JsonConvert.DeserializeObject<JegertrapResult>(result.Results);
             var hits = res.AchievedPoints;
 
+            jegertrapResultSeries = res.Series;
+            jegertrapResultSeriesListView.ItemsSource = jegertrapResultSeries;
             achievablePointsDetailsLabel.Text = res.AchievablePoints.ToString();
             achievedPointsDetailsLabel.Text = res.AchievedPoints.ToString();
 
