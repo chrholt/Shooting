@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:digits="clr-namespace:Shooting;assembly=Shooting"
+             x:Class="Shooting.ViewsCreate.JegertrapCreate"
+             Title="Opprett nytt resultat">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Jegertrap" TextColor="{Binding Source={StaticResource blackText}}" FontSize="Medium" />
+            <Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Text="Navn" HorizontalOptions="Fill" />
+                    <Entry Grid.Row="1" x:Name="nameEntry" HorizontalOptions="Fill"/>
+                    <Label x:Name="nameErrorLabel" 
+                       FontSize="Micro" 
+                       IsVisible="false" 
+                       TextColor="Red" 
+                       Text="Vennligst angi navn"
+                       Grid.Row="2"/>
+                </Grid>
+
+            </Frame>
+            <Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Dato" />
+                    <DatePicker Grid.Row="1" Grid.Column="0" x:Name="datePicker">
+                        <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                    </DatePicker>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="StevneID     " />
+                    <Entry Grid.Row="1" Grid.Column="1" x:Name="stevneIDEntry" />
+                </Grid>
+            </Frame>
+            <Label Text="Serier" TextColor="{Binding Source={StaticResource blackText}}" FontSize="Small" />
+            <Button Text="Legg til serie" Clicked="AddSeries" />
+            <Label TextColor="Purple" x:Name="checkerText" />
+            <Frame>
+                <Grid x:Name="seriesGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Treff oppnådd" />
+                    <Entry Grid.Row="1" Grid.Column="0" x:Name="achievedPoints" ClassId="99">
+                    </Entry>
+
+                    <Label Grid.Row="0" 
+                       Grid.Column="1" 
+                       Text="Maks treff" />
+
+                    <Entry Grid.Row="1" 
+                       Grid.Column="1" 
+                       x:Name="achievablePoints" IsEnabled="False" Text="25">
+                    </Entry>
+
+                    <Label x:Name="achievedPointsErrorLabel" 
+                       FontSize="Micro" 
+                       IsVisible="false" 
+                       TextColor="Red" 
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+                    <Label x:Name="achievablePointsErrorLabel" 
+                       FontSize="Micro" 
+                       IsVisible="false" 
+                       TextColor="Red" 
+                       Text="Ugyldig - kun heltall"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <!--<Button Clicked="Save_Result" 
+                FontSize="Medium" 
+                Text="Lagre nytt resultat" 
+                BackgroundColor="Transparent" 
+                HorizontalOptions="Center" 
+                Image="icon.png" 
+                IsEnabled="{Binding Source={x:Reference DigitBehaviorAchieved}, Path=IsValid}" />-->
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -43,9 +43,17 @@
     <Compile Include="IFileHelper.cs" />
     <Compile Include="MenuItems\MasterPageItem.cs" />
     <Compile Include="Models\FigurjaktResult.cs" />
+    <Compile Include="Models\JegertrapResult.cs" />
+    <Compile Include="Models\JegertrapSeries.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="ViewsCreate\JegertrapCreate.xaml.cs">
+      <DependentUpon>JegertrapCreate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewsDetails\FigurjaktDetails.xaml.cs">
       <DependentUpon>FigurjaktDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsDetails\JegertrapDetails.xaml.cs">
+      <DependentUpon>JegertrapDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Figurjakt.xaml.cs">
       <DependentUpon>Figurjakt.xaml</DependentUpon>
@@ -104,6 +112,9 @@
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Windows.Foundation.UniversalApiContract">
+      <HintPath>C:\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.UniversalApiContract\3.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -158,6 +169,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\FrontPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewsCreate\JegertrapCreate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewsDetails\JegertrapDetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

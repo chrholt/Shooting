@@ -56,6 +56,22 @@ namespace Shooting.Database
             }
         }
 
+        public ObservableCollection<Result> GetJegertrapResults()
+        {
+            ObservableCollection<Result> oc = new ObservableCollection<Result>();
+            lock (collisionLock)
+            {
+                var query = from res in database.Table<Result>()
+                            where res.Type == "Jegertrap"
+                            select res;
+                foreach (var r in query)
+                {
+                    oc.Add(r);
+                }
+                return oc;
+            }
+        }
+
         public int SaveResult(Result resultInstance)
         {
             lock (collisionLock)

@@ -27,7 +27,7 @@ namespace Shooting
             menuList.Add(new MasterPageItem
             {
                 Title = "Jegertrap",
-                Icon = "plus_72x72_333333gray.png",
+                Icon = "targetclay.png",
                 TargetType = typeof(Jegertrap) });
 
             menuListView.ItemsSource = menuList;
