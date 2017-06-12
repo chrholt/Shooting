@@ -55,5 +55,3 @@ E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.md
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
 E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb
-E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\obj\Debug\Shooting.dll.mdb
-E:\Users\chhol\Source\Repos\Shooting\Shooting\Shooting\bin\Debug\Shooting.dll.mdb
