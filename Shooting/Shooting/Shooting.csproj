@@ -43,6 +43,7 @@
     <Compile Include="IFileHelper.cs" />
     <Compile Include="MenuItems\MasterPageItem.cs" />
     <Compile Include="Models\FigurjaktResult.cs" />
+    <Compile Include="Models\JaktfeltPost.cs" />
     <Compile Include="Models\JaktfeltResult.cs" />
     <Compile Include="Models\JegertrapResult.cs" />
     <Compile Include="Models\JegertrapSeries.cs" />

@@ -145,25 +145,55 @@ namespace Shooting.ViewsCreate
         private void Save_Result()
         {
             //LIST OF HITS ENTRIES
-            var hitsEntries = new List<Entry>();
+            var hitsEntries = new List<JaktfeltPost>();
 
             bool hitsEntriesValid = false;
             bool nameOK = false;
+            int hits = 0, innerHits =0;
+
+            ObservableCollection<JaktfeltPost> jaktfeltPosts = new ObservableCollection<JaktfeltPost>();
 
             //ADD ENTRIES TO THE LIST OF ENTRIES FOR VALIDATION CHECK
-            hitsEntries.Add(post1Hits);
-            hitsEntries.Add(post1InnerHits);
-            hitsEntries.Add(post2Hits);
-            hitsEntries.Add(post2InnerHits);
-            hitsEntries.Add(post3Hits);
-            hitsEntries.Add(post3InnerHits);
-            hitsEntries.Add(post4Hits);
-            hitsEntries.Add(post4InnerHits);
-            hitsEntries.Add(post5Hits);
-            hitsEntries.Add(post5InnerHits);
-            hitsEntries.Add(post6Hits);
-            hitsEntries.Add(post6InnerHits);
+            hitsEntries.Add(new JaktfeltPost {
+                Hits = Convert.ToInt32(post1Hits.Text),
+                InnerHits = Convert.ToInt32(post1InnerHits.Text),
+                PostName = "Post 1"
+            });
 
+            hitsEntries.Add(new JaktfeltPost
+            {
+                Hits = Convert.ToInt32(post2Hits.Text),
+                InnerHits = Convert.ToInt32(post2InnerHits.Text),
+                PostName = "Post 2"
+            });
+
+            hitsEntries.Add(new JaktfeltPost
+            {
+                Hits = Convert.ToInt32(post3Hits.Text),
+                InnerHits = Convert.ToInt32(post3InnerHits.Text),
+                PostName = "Post 3"
+            });
+
+            hitsEntries.Add(new JaktfeltPost
+            {
+                Hits = Convert.ToInt32(post4Hits.Text),
+                InnerHits = Convert.ToInt32(post4InnerHits.Text),
+                PostName = "Post 4"
+            });
+
+            hitsEntries.Add(new JaktfeltPost
+            {
+                Hits = Convert.ToInt32(post5Hits.Text),
+                InnerHits = Convert.ToInt32(post5InnerHits.Text),
+                PostName = "Post 5"
+            });
+
+            hitsEntries.Add(new JaktfeltPost
+            {
+                Hits = Convert.ToInt32(post6Hits.Text),
+                InnerHits = Convert.ToInt32(post6InnerHits.Text),
+                PostName = "Post 6"
+            });
 
             //VALIDATION OF NAME ENTRY
             if (String.IsNullOrWhiteSpace(nameEntry.Text))
@@ -181,10 +211,14 @@ namespace Shooting.ViewsCreate
             entriesValid = new List<bool>();
             foreach(var e in hitsEntries)
             {
-                var ok = Convert.ToInt32(e.Text) <= 5;
+                var ok = e.InnerHits <= 5 && e.Hits <= 5;
                 if (ok)
                 {
+                    hits +=  e.Hits;
+                    innerHits += e.InnerHits;
+                    
                     entriesValid.Add(true);
+                    jaktfeltPosts.Add(e);
                 }
                 else { entriesValid.Add(false); }
             }
@@ -212,30 +246,9 @@ namespace Shooting.ViewsCreate
                     Type = "Jaktfelt",
                     Results = JsonConvert.SerializeObject(new JaktfeltResult
                     {
-                        P1Hits = post1Hits.Text,
-                        P1InnerHits = post1InnerHits.Text,
-                        P2Hits = post2Hits.Text,
-                        P2InnerHits = post2InnerHits.Text,
-                        P3Hits = post3Hits.Text,
-                        P3InnerHits = post3InnerHits.Text,
-                        P4Hits = post4Hits.Text,
-                        P4InnerHits = post4InnerHits.Text,
-                        P5Hits = post5Hits.Text,
-                        P5InnerHits = post5InnerHits.Text,
-                        P6Hits = post6Hits.Text,
-                        P6InnerHits = post6InnerHits.Text,
-                        Hits = Convert.ToInt32(post1Hits.Text)
-                               + Convert.ToInt32(post2Hits.Text)
-                               + Convert.ToInt32(post3Hits.Text)
-                               + Convert.ToInt32(post4Hits.Text)
-                               + Convert.ToInt32(post5Hits.Text)
-                               + Convert.ToInt32(post6Hits.Text),
-                        InnerHits = Convert.ToInt32(post1InnerHits.Text)
-                                    + Convert.ToInt32(post2InnerHits.Text)
-                                    + Convert.ToInt32(post3InnerHits.Text)
-                                    + Convert.ToInt32(post4InnerHits.Text)
-                                    + Convert.ToInt32(post5InnerHits.Text)
-                                    + Convert.ToInt32(post6InnerHits.Text)
+                        Hits = hits,
+                        InnerHits = innerHits,
+                        Posts = jaktfeltPosts
                     })
                 };
                 oc.Add(result);
