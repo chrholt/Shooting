@@ -223,7 +223,19 @@ namespace Shooting.ViewsCreate
                         P5Hits = post5Hits.Text,
                         P5InnerHits = post5InnerHits.Text,
                         P6Hits = post6Hits.Text,
-                        P6InnerHits = post6InnerHits.Text
+                        P6InnerHits = post6InnerHits.Text,
+                        Hits = Convert.ToInt32(post1Hits.Text)
+                               + Convert.ToInt32(post2Hits.Text)
+                               + Convert.ToInt32(post3Hits.Text)
+                               + Convert.ToInt32(post4Hits.Text)
+                               + Convert.ToInt32(post5Hits.Text)
+                               + Convert.ToInt32(post6Hits.Text),
+                        InnerHits = Convert.ToInt32(post1InnerHits.Text)
+                                    + Convert.ToInt32(post2InnerHits.Text)
+                                    + Convert.ToInt32(post3InnerHits.Text)
+                                    + Convert.ToInt32(post4InnerHits.Text)
+                                    + Convert.ToInt32(post5InnerHits.Text)
+                                    + Convert.ToInt32(post6InnerHits.Text)
                     })
                 };
                 oc.Add(result);

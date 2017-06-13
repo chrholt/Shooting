@@ -8,6 +8,8 @@ namespace Shooting.Models
 {
     public class JaktfeltResult
     {
+        public int Hits { get; set; }
+        public int InnerHits { get; set; }
         public string P1Hits { get; set; }
         public string P1InnerHits { get; set; }
         public string P2Hits { get; set; }
