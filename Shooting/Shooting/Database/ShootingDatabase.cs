@@ -40,6 +40,22 @@ namespace Shooting.Database
             });
         }
 
+        internal ObservableCollection<Result> GetJaktfeltResults()
+        {
+            ObservableCollection<Result> oc = new ObservableCollection<Result>();
+            lock (collisionLock)
+            {
+                var query = from res in database.Table<Result>()
+                            where res.Type == "Jaktfelt"
+                            select res;
+                foreach(var r in query)
+                {
+                    oc.Add(r);
+                }
+                return oc;
+            }
+        }
+
         public ObservableCollection<Result> GetFigurjaktResults()
         {
             ObservableCollection<Result> oc = new ObservableCollection<Result>();

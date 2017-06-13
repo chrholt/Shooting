@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Shooting.Views;
+using Shooting.ViewsCreate;
 
 namespace Shooting
 {
@@ -30,6 +31,13 @@ namespace Shooting
                 Icon = "targetclay.png",
                 TargetType = typeof(Jegertrap) });
 
+            menuList.Add(new MasterPageItem
+            {
+                Title = "Jaktfelt",
+                Icon = "jaktfelt_icon.png",
+                TargetType = typeof(Jaktfelt)
+            });
+
             menuListView.ItemsSource = menuList;
 
             //FILL SETTINGS SECTION WITH LINKS TO PAGES
@@ -45,7 +53,7 @@ namespace Shooting
             settingsSectionListView.ItemsSource = settingsSectionList;
 
             //SETS DETAIL PAGE
-            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(FrontPage)));
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(JaktfeltCreate)));
             detailPage.BarBackgroundColor = Color.FromHex("#666666");
             detailPage.BarTextColor = Color.FromHex("#FFFFFF");
             Detail = detailPage;
