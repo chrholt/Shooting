@@ -8,6 +8,9 @@
         <StackLayout Margin="10,30,10,20">
             <Label Text="Mine resultater" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{Binding Source={StaticResource blackText}}"/>
             <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
+            <SearchBar x:Name="figurjaktResultsListViewSearchBar" 
+                       TextChanged="figurjaktResultsListViewSearchBar_TextChanged"/>
+            
             <ListView x:Name="figurjaktResultsListView"
                       VerticalOptions="FillAndExpand"
                       ItemSelected="figurjaktResultsListView_ItemSelected"

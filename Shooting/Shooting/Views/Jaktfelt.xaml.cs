@@ -49,5 +49,18 @@ namespace Shooting
             var newPage = new JaktfeltCreate(jaktfeltResults);
             Navigation.PushAsync(newPage);
         }
+
+        private void jaktfeltResultsListViewSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var keyword = jaktfeltResultsListViewSearchBar.Text;
+            if (!String.IsNullOrWhiteSpace(keyword))
+            {
+                jaktfeltResultsListView.ItemsSource = from f in jaktfeltResults
+                                                      where f.Name.Contains(keyword) || f.Date.ToString("dd/MM/yyyy").Contains(keyword)
+                                                      select f;
+            }
+            //figurjaktResults.Where(name => name.Name.Contains(keyword));
+            //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
+        }
     }
 }

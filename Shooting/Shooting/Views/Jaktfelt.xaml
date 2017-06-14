@@ -8,6 +8,8 @@
         <StackLayout Margin="10,30,10,20">
             <Label Text="Mine resultater" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{Binding Source={StaticResource blackText}}"/>
             <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
+            <SearchBar x:Name="jaktfeltResultsListViewSearchBar" 
+                       TextChanged="jaktfeltResultsListViewSearchBar_TextChanged"/>
             <ListView x:Name="jaktfeltResultsListView"
                       VerticalOptions="FillAndExpand"
                       ItemSelected="jaktfeltResultsListView_ItemSelected"

@@ -49,6 +49,19 @@ namespace Shooting
             Navigation.PushAsync(newPage);
         }
 
+        private void jegertrapResultsListViewSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var keyword = jegertrapResultsListViewSearchBar.Text;
+            if (!String.IsNullOrWhiteSpace(keyword))
+                {
+                    jegertrapResultsListView.ItemsSource = from f in jegertrapResults
+                                                           where f.Name.Contains(keyword) || f.Date.ToString("dd/MM/yyyy").Contains(keyword)
+                                                           select f;
+                }
+            //figurjaktResults.Where(name => name.Name.Contains(keyword));
+            //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

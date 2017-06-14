@@ -53,7 +53,7 @@ namespace Shooting
             settingsSectionListView.ItemsSource = settingsSectionList;
 
             //SETS DETAIL PAGE
-            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(Jaktfelt)));
+            var detailPage = new NavigationPage((Page)Activator.CreateInstance(typeof(FrontPage)));
             detailPage.BarBackgroundColor = Color.FromHex("#666666");
             detailPage.BarTextColor = Color.FromHex("#FFFFFF");
             Detail = detailPage;

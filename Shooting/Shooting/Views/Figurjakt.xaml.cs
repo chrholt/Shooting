@@ -55,5 +55,19 @@ namespace Shooting
             var newPage = new FigurjaktCreate(figurjaktResults);
             Navigation.PushAsync(newPage);
         }
+
+
+        private void figurjaktResultsListViewSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var keyword = figurjaktResultsListViewSearchBar.Text;
+            if (!String.IsNullOrWhiteSpace(keyword))
+            {
+                figurjaktResultsListView.ItemsSource = from f in figurjaktResults
+                                                       where f.Name.Contains(keyword) || f.Date.ToString("dd/MM/yyyy").Contains(keyword)
+                                                       select f;
+            }
+                //figurjaktResults.Where(name => name.Name.Contains(keyword));
+            //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
+        }
     }
 }
