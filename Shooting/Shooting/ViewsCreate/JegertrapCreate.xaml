@@ -45,7 +45,11 @@
                 </Grid>
             </Frame>
             <Label Text="Serier" TextColor="{Binding Source={StaticResource blackText}}" FontSize="Small" />
-            <Button Text="Legg til serie" Clicked="AddSeries" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Legg til serie" Clicked="AddSeries" />
+                <Button Text="Fjern serie" Clicked="RemoveSeries" />
+            </StackLayout>
+            
             <Label TextColor="Purple" x:Name="checkerText" />
             <Frame>
                 <Grid x:Name="seriesGrid">

@@ -245,6 +245,35 @@ namespace Shooting.ViewsCreate
             checkerText.Text = series + " serier";
         }
 
+        private void RemoveSeries(object sender, EventArgs args)
+        {
+            var children = seriesGrid.Children.Count();
+            series--;
+            //FIND GRID AND DELETE ROW
+            Grid grid = seriesGrid;
+            rows = seriesGrid.RowDefinitions.Count;
+
+
+            seriesGrid.RowDefinitions.RemoveAt(rows-1);
+
+            seriesGrid.Children.RemoveAt(children - 1);
+            seriesGrid.Children.RemoveAt(children - 2);
+
+            seriesGrid.RowDefinitions.RemoveAt(rows-2);
+
+            seriesGrid.Children.RemoveAt(children - 3);
+            seriesGrid.Children.RemoveAt(children - 4);
+
+            seriesGrid.RowDefinitions.RemoveAt(rows-3);
+
+            seriesGrid.Children.RemoveAt(children - 5);
+            seriesGrid.Children.RemoveAt(children - 6);
+
+            checkerText.Text = series + " serier";
+
+
+        }
+
         public static bool AreAllTrue(List<bool> values)
         {
             return values.All(v => v == true);
