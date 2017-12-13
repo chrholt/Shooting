@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
+//using Windows.UI.Xaml;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
