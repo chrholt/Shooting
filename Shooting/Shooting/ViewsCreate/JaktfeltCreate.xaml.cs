@@ -5,11 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 
 namespace Shooting.ViewsCreate
 {
@@ -252,10 +253,20 @@ namespace Shooting.ViewsCreate
                     })
                 };
                 oc.Add(result);
-                database.SaveResult(result);
+                //database.SaveResult(result);
+                Save_Result(result);
                 Navigation.PopAsync();
             }
             else { }
+
+        }
+
+        private void Save_Result(Result result)
+        {
+            using(var client = new HttpClient())
+            {
+                //START HERE !!!!!!!!!!!!!!!!!!!!!!!
+            }
 
         }
 
