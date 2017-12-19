@@ -1,10 +1,12 @@
 ﻿//using Shooting.Database;
+using Newtonsoft.Json;
 using Shooting.ViewsCreate;
 using Shooting.ViewsDetails;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +19,7 @@ namespace Shooting
     public partial class Jegertrap : ContentPage
     {
         //private ShootingDatabase database;
-        private ObservableCollection<Result> jegertrapResults;
+        private ObservableCollection<Result> jegertrapResults = new ObservableCollection<Result>();
 
         public Jegertrap()
         {
@@ -32,6 +34,7 @@ namespace Shooting
 
             });
             //jegertrapResults = database.GetJegertrapResults();
+            GetJegertrapResults();
             jegertrapResultsListView.ItemsSource = jegertrapResults;
         }
 
@@ -62,9 +65,39 @@ namespace Shooting
             //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
         }
 
-        protected override void OnAppearing()
+        public async void GetJegertrapResults()
         {
-            base.OnAppearing();
+            try { 
+                using (var client = new HttpClient())
+                {
+                    //SHOW ACTIVITYINDICATOR AND START ANIMATION
+                    activityIndicatorJTResultsListView.IsVisible = true;
+                    activityIndicatorJTResultsListView.IsRunning = true;
+                    client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                    using (var r = await client.GetAsync("api/results/GetJegertrapResults"))
+                    {
+                        var result = await r.Content.ReadAsStringAsync();
+                        var res = JsonConvert.DeserializeObject<List<Result>>(result);
+                        foreach (var re in res)
+                        {
+                            jegertrapResults.Add(re);
+                        }
+                    }
+                    //STOP ANIMATION AND HIDE ACTIVITYINDICATOR
+                    activityIndicatorJTResultsListView.IsRunning = false;
+                    activityIndicatorJTResultsListView.IsVisible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert(ex.GetBaseException().Message, ex.InnerException.Message, "OK");
+            }
+
         }
+
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //}
     }
 }

@@ -1,10 +1,12 @@
 ﻿//using Shooting.Database;
+using Newtonsoft.Json;
 using Shooting.Views;
 using Shooting.ViewsDetails;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +19,7 @@ namespace Shooting
     public partial class Figurjakt : ContentPage
     {
         //private ShootingDatabase database;
-        private ObservableCollection<Result> figurjaktResults;
+        private ObservableCollection<Result> figurjaktResults = new ObservableCollection<Result>();
         
         public Figurjakt()
         {
@@ -32,6 +34,7 @@ namespace Shooting
                 
             });
             //figurjaktResults = database.GetFigurjaktResults();
+            GetFigurjaktResults();
             figurjaktResultsListView.ItemsSource = figurjaktResults;
         }
 
@@ -43,12 +46,12 @@ namespace Shooting
             Navigation.PushAsync(newPage);
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
             
             
-        }
+        //}
 
         private void GoToRegisterFigurjaktResult()
         {
@@ -68,6 +71,36 @@ namespace Shooting
             }
                 //figurjaktResults.Where(name => name.Name.Contains(keyword));
             //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
+        }
+
+        public async void GetFigurjaktResults()
+        {
+            try { 
+                using (var client = new HttpClient())
+                {
+                    //SHOW ACTIVITYINDICATOR AND START ANIMATION
+                    activityIndicatorFJResultsListView.IsVisible = true;
+                    activityIndicatorFJResultsListView.IsRunning = true;
+                    client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                    using (var r = await client.GetAsync("api/results/GetFigurjaktResults"))
+                    {
+                        var result = await r.Content.ReadAsStringAsync();
+                        var res = JsonConvert.DeserializeObject<List<Result>>(result);
+                        foreach (var re in res)
+                        {
+                            figurjaktResults.Add(re);
+                        }
+                    }
+                    //STOP ANIMATION AND HIDE ACTIVITYINDICATOR
+                    activityIndicatorFJResultsListView.IsRunning = false;
+                    activityIndicatorFJResultsListView.IsVisible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert(ex.GetBaseException().Message, ex.InnerException.Message, "OK");
+            }
+
         }
     }
 }

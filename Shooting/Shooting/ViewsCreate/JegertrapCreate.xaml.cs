@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -138,6 +139,7 @@ namespace Shooting.ViewsCreate
             {
                 Result result = new Result
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Date = datePicker.Date,
                     Name = nameEntry.Text,
                     StevneID = stevneIDEntry.Text,
@@ -149,11 +151,32 @@ namespace Shooting.ViewsCreate
                         Series = jegertrapSeries
                     })
                 };
+                System.Diagnostics.Debug.WriteLine(JsonConvert.SerializeObject(result));
                 oc.Add(result);
                 //database.SaveResult(result);
+                Save_Result(result);
                 Navigation.PopAsync();
             }
             else { }
+        }
+
+        private async void Save_Result(Result result)
+        {
+            
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                    HttpContent content = new StringContent(JsonConvert.SerializeObject(result), Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage x = await client.PostAsync("api/Results/", content);
+                //if (!x.IsSuccessStatusCode)
+                //{
+                //    await DisplayAlert(x.StatusCode.ToString(), x.Headers.Location.Query, "OK");
+                //}
+               
+                }
+           
+
         }
 
         private void AddSeries(object sender, EventArgs args)

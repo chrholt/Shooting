@@ -8,6 +8,7 @@
         <StackLayout Margin="10,30,10,20">
             <Label Text="Mine resultater" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{Binding Source={StaticResource blackText}}"/>
             <BoxView HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
+            <ActivityIndicator x:Name="activityIndicatorFJResultsListView" IsVisible="False" Color="{Binding Source={StaticResource detailBarBackground}}"></ActivityIndicator>
             <SearchBar x:Name="figurjaktResultsListViewSearchBar" 
                        TextChanged="figurjaktResultsListViewSearchBar_TextChanged"/>
             

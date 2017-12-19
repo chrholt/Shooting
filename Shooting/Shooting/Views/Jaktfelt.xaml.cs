@@ -67,21 +67,31 @@ namespace Shooting
 
         public async void GetJaktfeltResults()
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
-                using (var r = await client.GetAsync("api/results"))
+                using (var client = new HttpClient())
                 {
-                    var result = await r.Content.ReadAsStringAsync();
-                    var res= JsonConvert.DeserializeObject< List<Result>>(result);
-                    foreach(var re in res)
+                    //SHOW ACTIVITYINDICATOR AND START ANIMATION
+                    activityIndicatorJFResultsListView.IsVisible = true;
+                    activityIndicatorJFResultsListView.IsRunning = true;
+                    client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                    using (var r = await client.GetAsync("api/results/GetJaktfeltResults"))
                     {
-                        jaktfeltResults.Add(re);
+                        var result = await r.Content.ReadAsStringAsync();
+                        var res = JsonConvert.DeserializeObject<List<Result>>(result);
+                        foreach (var re in res)
+                        {
+                            jaktfeltResults.Add(re);
+                        }
                     }
-                    
-                    await DisplayAlert("JF results", "Method for getting jf results now run", "OK");
+                    //STOP ANIMATION AND HIDE ACTIVITYINDICATOR
+                    activityIndicatorJFResultsListView.IsRunning = false;
+                    activityIndicatorJFResultsListView.IsVisible = false;
                 }
-                
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert(ex.GetBaseException().Message, ex.InnerException.Message, "OK");
             }
             
         }

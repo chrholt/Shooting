@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -95,6 +96,7 @@ namespace Shooting.Views
             {
                 Result result = new Result
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Date = datePicker.Date,
                     Name = nameEntry.Text,
                     StevneID = stevneIDEntry.Text,
@@ -107,12 +109,27 @@ namespace Shooting.Views
                 };
                 oc.Add(result);
                 //database.SaveResult(result);
+                Save_Result(result);
                 Navigation.PopAsync();
             }
             else
             {
                 
             }
+        }
+
+        private async void Save_Result(Result result)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(result), Encoding.UTF8, "application/json");
+
+                HttpResponseMessage x = await client.PostAsync("api/Results/", content);
+                x.EnsureSuccessStatusCode();
+                System.Diagnostics.Debug.WriteLine(x.StatusCode);
+            }
+
         }
 
         protected override void OnDisappearing()
