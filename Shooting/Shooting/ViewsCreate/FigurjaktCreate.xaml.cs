@@ -120,16 +120,17 @@ namespace Shooting.Views
 
         private async void Save_Result(Result result)
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
-                HttpContent content = new StringContent(JsonConvert.SerializeObject(result), Encoding.UTF8, "application/json");
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                    HttpContent content = new StringContent(JsonConvert.SerializeObject(result), Encoding.UTF8, "application/json");
 
-                HttpResponseMessage x = await client.PostAsync("api/Results/", content);
-                x.EnsureSuccessStatusCode();
-                System.Diagnostics.Debug.WriteLine(x.StatusCode);
+                    HttpResponseMessage x = await client.PostAsync("api/Results/", content);
+                }
             }
-
+            catch(Exception ex) { }
         }
 
         protected override void OnDisappearing()

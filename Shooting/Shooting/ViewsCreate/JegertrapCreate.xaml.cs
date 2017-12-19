@@ -162,19 +162,17 @@ namespace Shooting.ViewsCreate
 
         private async void Save_Result(Result result)
         {
-            
+            try
+            {
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
                     HttpContent content = new StringContent(JsonConvert.SerializeObject(result), Encoding.UTF8, "application/json");
 
                     HttpResponseMessage x = await client.PostAsync("api/Results/", content);
-                //if (!x.IsSuccessStatusCode)
-                //{
-                //    await DisplayAlert(x.StatusCode.ToString(), x.Headers.Location.Query, "OK");
-                //}
-               
                 }
+            }
+            catch(Exception ex) { }
            
 
         }
