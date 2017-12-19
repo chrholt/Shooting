@@ -1,4 +1,4 @@
-﻿using Shooting.Database;
+﻿//using Shooting.Database;
 using Shooting.Views;
 using Shooting.ViewsDetails;
 using System;
@@ -16,13 +16,13 @@ namespace Shooting
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Figurjakt : ContentPage
     {
-        private ShootingDatabase database;
+        //private ShootingDatabase database;
         private ObservableCollection<Result> figurjaktResults;
         
         public Figurjakt()
         {
             InitializeComponent();
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
             
             ToolbarItems.Add(new ToolbarItem
             {
@@ -31,7 +31,7 @@ namespace Shooting
                 Command = new Command(this.GoToRegisterFigurjaktResult)
                 
             });
-            figurjaktResults = database.GetFigurjaktResults();
+            //figurjaktResults = database.GetFigurjaktResults();
             figurjaktResultsListView.ItemsSource = figurjaktResults;
         }
 

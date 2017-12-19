@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Shooting.Database;
+//using Shooting.Database;
 using Shooting.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Shooting.ViewsDetails
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class JegertrapDetails : ContentPage
     {
-        private ShootingDatabase database;
+        //private ShootingDatabase database;
         private ObservableCollection<Result> jegertrapResults;
         private ObservableCollection<JegertrapSeries> jegertrapResultSeries;
         private Result result;
@@ -50,13 +50,13 @@ namespace Shooting.ViewsDetails
 
         private async void DeleteResult()
         {
-            database = new ShootingDatabase();
+            //database = new ShootingDatabase();
 
             var answer = await DisplayAlert("Delete result?", "Are you sure you want to delete?", "Yes", "No");
             if (answer)
             {
                 jegertrapResults.Remove(result);
-                database.DeleteResult(result);
+                //database.DeleteResult(result);
                 await Navigation.PopAsync();
             }
 

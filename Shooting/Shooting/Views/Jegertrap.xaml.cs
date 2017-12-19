@@ -1,4 +1,4 @@
-﻿using Shooting.Database;
+﻿//using Shooting.Database;
 using Shooting.ViewsCreate;
 using Shooting.ViewsDetails;
 using System;
@@ -16,13 +16,13 @@ namespace Shooting
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Jegertrap : ContentPage
     {
-        private ShootingDatabase database;
+        //private ShootingDatabase database;
         private ObservableCollection<Result> jegertrapResults;
 
         public Jegertrap()
         {
             InitializeComponent();
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -31,7 +31,7 @@ namespace Shooting
                 Command = new Command(this.GoToRegisterJegertrapResult)
 
             });
-            jegertrapResults = database.GetJegertrapResults();
+            //jegertrapResults = database.GetJegertrapResults();
             jegertrapResultsListView.ItemsSource = jegertrapResults;
         }
 

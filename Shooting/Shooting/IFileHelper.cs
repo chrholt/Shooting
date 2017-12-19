@@ -8,6 +8,6 @@ namespace Shooting
 {
     public interface IFileHelper
     {
-        SQLite.SQLiteConnection DbConnection();
+        //SQLite.SQLiteConnection DbConnection();
     }
 }

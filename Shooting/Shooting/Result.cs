@@ -10,7 +10,7 @@ namespace Shooting
     public class Result
     {
         
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public string StevneID { get; set; }

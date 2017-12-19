@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Shooting.Database;
+//using Shooting.Database;
 using Shooting.Models;
 using System;
 using System.Collections.Generic;
@@ -18,15 +18,15 @@ namespace Shooting.ViewsCreate
     public partial class JaktfeltCreate : ContentPage
     {
         private const string digitRegex = @"^[0-9]+$";
-        private ShootingDatabase database;
+        //private ShootingDatabase database;
         private ObservableCollection<Result> oc;
         private List<bool> entriesValid;
 
         public JaktfeltCreate()
         {
             InitializeComponent();
-            this.database = new ShootingDatabase();
-            this.oc = database.GetJaktfeltResults();
+            //this.database = new ShootingDatabase();
+            //this.oc = database.GetJaktfeltResults();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -86,8 +86,12 @@ namespace Shooting.ViewsCreate
         public JaktfeltCreate(ObservableCollection<Result> jaktfeltResults)
         {
             InitializeComponent();
-            this.oc = jaktfeltResults;
-            this.database = new ShootingDatabase();
+            if(jaktfeltResults == null)
+            {               
+                this.oc = new ObservableCollection<Result>();
+            }
+            else { this.oc = jaktfeltResults; }
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -241,6 +245,7 @@ namespace Shooting.ViewsCreate
             {
                 Result result = new Result
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Date = datePicker.Date,
                     Name = nameEntry.Text,
                     StevneID = stevneIDEntry.Text,
@@ -261,11 +266,16 @@ namespace Shooting.ViewsCreate
 
         }
 
-        private void Save_Result(Result result)
+        private async void Save_Result(Result result)
         {
             using(var client = new HttpClient())
             {
-                //START HERE !!!!!!!!!!!!!!!!!!!!!!!
+                client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(result),Encoding.UTF8, "application/json");
+
+                HttpResponseMessage x = await client.PostAsync("api/Results/", content);
+                x.EnsureSuccessStatusCode();
+                System.Diagnostics.Debug.WriteLine(x.StatusCode);
             }
 
         }

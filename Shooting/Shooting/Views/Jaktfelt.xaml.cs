@@ -1,10 +1,12 @@
-﻿using Shooting.Database;
+﻿//using Shooting.Database;
+using Newtonsoft.Json;
 using Shooting.ViewsCreate;
 using Shooting.ViewsDetails;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,13 +18,13 @@ namespace Shooting
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Jaktfelt : ContentPage
     {
-        private ShootingDatabase database;
-        private ObservableCollection<Result> jaktfeltResults;
+        //private ShootingDatabase database;
+        private ObservableCollection<Result> jaktfeltResults = new ObservableCollection<Result>();
 
         public Jaktfelt()
         {
             InitializeComponent();
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -31,7 +33,7 @@ namespace Shooting
                 Command = new Command(this.GoToRegisterJaktfeltResult)
             });
 
-            jaktfeltResults = database.GetJaktfeltResults();
+            GetJaktfeltResults();
             jaktfeltResultsListView.ItemsSource = jaktfeltResults;
         }
 
@@ -61,6 +63,27 @@ namespace Shooting
             }
             //figurjaktResults.Where(name => name.Name.Contains(keyword));
             //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
+        }
+
+        public async void GetJaktfeltResults()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://shootingwebapi.azurewebsites.net/");
+                using (var r = await client.GetAsync("api/results"))
+                {
+                    var result = await r.Content.ReadAsStringAsync();
+                    var res= JsonConvert.DeserializeObject< List<Result>>(result);
+                    foreach(var re in res)
+                    {
+                        jaktfeltResults.Add(re);
+                    }
+                    
+                    await DisplayAlert("JF results", "Method for getting jf results now run", "OK");
+                }
+                
+            }
+            
         }
     }
 }

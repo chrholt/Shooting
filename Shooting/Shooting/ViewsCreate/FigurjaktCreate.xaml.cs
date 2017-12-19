@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Shooting.Database;
+//using Shooting.Database;
 using Shooting.Models;
 using System;
 using System.Collections.Generic;
@@ -20,12 +20,12 @@ namespace Shooting.Views
     public partial class FigurjaktCreate : ContentPage
     {
         private const string digitRegex = @"^[0-9]+$";
-        private ShootingDatabase database;
+        //private ShootingDatabase database;
         private ObservableCollection<Result> oc;
         public FigurjaktCreate()
         {
             InitializeComponent();
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -38,7 +38,7 @@ namespace Shooting.Views
         {
             InitializeComponent();
             this.oc = figurjaktResults;
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -106,7 +106,7 @@ namespace Shooting.Views
                     })
                 };
                 oc.Add(result);
-                database.SaveResult(result);
+                //database.SaveResult(result);
                 Navigation.PopAsync();
             }
             else

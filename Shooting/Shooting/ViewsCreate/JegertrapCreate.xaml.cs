@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Shooting.Database;
+//using Shooting.Database;
 using Shooting.Models;
 using System;
 using System.Collections.Generic;
@@ -18,14 +18,14 @@ namespace Shooting.ViewsCreate
     public partial class JegertrapCreate : ContentPage
     {
         private const string digitRegex = @"^[0-9]+$";
-        private ShootingDatabase database;
+        //private ShootingDatabase database;
         private ObservableCollection<Result> oc;
         private int rows, series;
         private List<bool> entriesValid;
         public JegertrapCreate()
         {
             InitializeComponent();
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -43,7 +43,7 @@ namespace Shooting.ViewsCreate
         {
             InitializeComponent();
             this.oc = jegertrapResults;
-            this.database = new ShootingDatabase();
+            //this.database = new ShootingDatabase();
 
             ToolbarItems.Add(new ToolbarItem
             {
@@ -150,7 +150,7 @@ namespace Shooting.ViewsCreate
                     })
                 };
                 oc.Add(result);
-                database.SaveResult(result);
+                //database.SaveResult(result);
                 Navigation.PopAsync();
             }
             else { }
