@@ -258,7 +258,7 @@ namespace Shooting.ViewsCreate
             else { }
 
         }
-
+        //Method for checking a list of booleans if all are true
         private bool AreAllTrue(List<bool> entriesValid)
         {
             return entriesValid.All(v=> v == true);

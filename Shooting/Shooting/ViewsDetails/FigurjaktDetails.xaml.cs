@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Shooting.Database;
 using Shooting.Models;
+using Shooting.ViewsEdit;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,33 @@ namespace Shooting.ViewsDetails
             this.result = result;
             this.figurjaktResults = figurjaktResults;
 
+            //SetContent();
+
+            //ADD TOOLBARITEMS
+            //DELETE
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Icon = "delete_32x32_white.png",
+                Text = "Delete Result",
+                Command = new Command(this.DeleteResult)
+
+            });
+            //EDIT
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Icon = "edit_128x128_white.png",
+                Text = "Edit Result",
+                Command = new Command(this.GoToEditFigurjaktResult)
+
+            });
+
+        }
+
+        private void SetContent()
+        {
+            database = new ShootingDatabase();
+            result = database.GetResult(result.ID);
+            BindingContext = result;
             //SET CONTENT
             FigurjaktResult res = JsonConvert.DeserializeObject<FigurjaktResult>(result.Results);
             var percentage = (res.AchievedPoints * 100) / res.AchievablePoints;
@@ -34,35 +62,24 @@ namespace Shooting.ViewsDetails
 
             percentageLabel.Text = percentage.ToString() + "%";
 
-            
+
             string qualificationMark;
             string qualImage = "";
 
             //CONDITIONAL CONTENT BASED ON RESULT
             if (percentage >= 88) { qualificationMark = "GULL"; qualImage = "gold_128x128.png"; }
             else if (percentage >= 75) { qualificationMark = "SØLV"; qualImage = "silver_128x128.png"; }
-            else if(percentage>= 60) { qualificationMark = "BRONSE"; qualImage = "bronze_128x128.png"; }
+            else if (percentage >= 60) { qualificationMark = "BRONSE"; qualImage = "bronze_128x128.png"; }
             else { qualificationMark = ""; }
             if (String.IsNullOrEmpty(qualificationMark))
             {
-            qualificationLabel.Text = "";
+                qualificationLabel.Text = "";
             }
             else
             {
-            qualificationLabel.Text = String.Format("I denne konkurransen oppfylte du NJFF's minstekrav for ferdighetsmerket {0}.", qualificationMark);
+                qualificationLabel.Text = String.Format("I denne konkurransen oppfylte du NJFF's minstekrav for ferdighetsmerket {0}.", qualificationMark);
             }
             qualificationImage.Source = ImageSource.FromFile(qualImage);
-
-            //ADD TOOLBARITEM
-            //DELETE
-            ToolbarItems.Add(new ToolbarItem
-            {
-                Icon = "delete_32x32_white.png",
-                Text = "Delete Result",
-                Command = new Command(this.DeleteResult)
-
-            });
-
         }
 
         private async void DeleteResult()
@@ -77,6 +94,18 @@ namespace Shooting.ViewsDetails
                 await Navigation.PopAsync();
             }
             
+        }
+
+        private async void GoToEditFigurjaktResult()
+        {
+            var newPage = new FigurjaktEdit(result);
+            await Navigation.PushAsync(newPage);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            SetContent();
         }
 
     }

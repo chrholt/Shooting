@@ -39,7 +39,17 @@ namespace Shooting.Database
                Type = "Figurjakt" 
             });
         }
-
+        internal Result GetResult(int id)
+        {
+            lock(collisionLock)
+            {
+                var query = from res in database.Table<Result>()
+                            where res.ID == id
+                            select res;
+                return query.FirstOrDefault();
+            }
+        }
+        //GET ALL Jaktfelt Results From Database
         internal ObservableCollection<Result> GetJaktfeltResults()
         {
             ObservableCollection<Result> oc = new ObservableCollection<Result>();
@@ -52,10 +62,11 @@ namespace Shooting.Database
                 {
                     oc.Add(r);
                 }
+                
                 return oc;
             }
         }
-
+        //GET All Figurjakt Results From Database
         public ObservableCollection<Result> GetFigurjaktResults()
         {
             ObservableCollection<Result> oc = new ObservableCollection<Result>();
@@ -71,7 +82,7 @@ namespace Shooting.Database
                 return oc;
             }
         }
-
+        //GET All Jegertrap Results From Database
         public ObservableCollection<Result> GetJegertrapResults()
         {
             ObservableCollection<Result> oc = new ObservableCollection<Result>();
@@ -87,7 +98,7 @@ namespace Shooting.Database
                 return oc;
             }
         }
-
+        //Common method for saving a result
         public int SaveResult(Result resultInstance)
         {
             lock (collisionLock)
@@ -102,6 +113,7 @@ namespace Shooting.Database
                     database.Insert(resultInstance);
                     return resultInstance.ID;
                 }
+
             }
         }
 
@@ -122,7 +134,7 @@ namespace Shooting.Database
                 }
             }
         }
-
+        //Common method for deleting a result
         public int DeleteResult(Result resultInstance)
         {
             var id = resultInstance.ID;
@@ -134,6 +146,19 @@ namespace Shooting.Database
                 }
             }
             this.Results.Remove(resultInstance);
+            return id;
+        }
+
+        public int UpdateResult(Result resultInstance)
+        {
+            var id = resultInstance.ID;
+            if(id != 0)
+            {
+                lock (collisionLock)
+                {
+                    database.Update(resultInstance);
+                }
+            }
             return id;
         }
     }

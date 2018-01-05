@@ -31,8 +31,7 @@ namespace Shooting
                 Command = new Command(this.GoToRegisterFigurjaktResult)
                 
             });
-            figurjaktResults = database.GetFigurjaktResults();
-            figurjaktResultsListView.ItemsSource = figurjaktResults;
+            
         }
 
         private void figurjaktResultsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -46,8 +45,10 @@ namespace Shooting
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            figurjaktResults = database.GetFigurjaktResults();
+            figurjaktResultsListView.ItemsSource = figurjaktResults;
             
-            
+
         }
 
         private void GoToRegisterFigurjaktResult()

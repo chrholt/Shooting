@@ -46,7 +46,8 @@
                          Grid.Column="0">
                 <Label Text="Dine poeng" />
                 <Label TextColor="{Binding Source={StaticResource blackText}}" 
-                       x:Name="achievedPointsDetailsLabel" />
+                       x:Name="achievedPointsDetailsLabel" 
+                       Text=""/>
             </StackLayout>
             <StackLayout Grid.Row="2" 
                          Grid.Column="1">

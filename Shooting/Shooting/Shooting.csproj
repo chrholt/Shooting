@@ -48,6 +48,7 @@
     <Compile Include="Models\JegertrapResult.cs" />
     <Compile Include="Models\JegertrapSeries.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="SyncData.cs" />
     <Compile Include="ValueBehavior.cs" />
     <Compile Include="ViewsCreate\JaktfeltCreate.xaml.cs">
       <DependentUpon>JaktfeltCreate.xaml</DependentUpon>
@@ -63,6 +64,15 @@
     </Compile>
     <Compile Include="ViewsDetails\JegertrapDetails.xaml.cs">
       <DependentUpon>JegertrapDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsEdit\FigurjaktEdit.xaml.cs">
+      <DependentUpon>FigurjaktEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsEdit\JaktfeltEdit.xaml.cs">
+      <DependentUpon>JaktfeltEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsEdit\JegertrapEdit.xaml.cs">
+      <DependentUpon>JegertrapEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Figurjakt.xaml.cs">
       <DependentUpon>Figurjakt.xaml</DependentUpon>
@@ -202,6 +212,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ViewsDetails\JaktfeltDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewsEdit\JaktfeltEdit.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewsEdit\FigurjaktEdit.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewsEdit\JegertrapEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

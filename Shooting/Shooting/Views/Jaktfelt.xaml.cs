@@ -23,19 +23,17 @@ namespace Shooting
         {
             InitializeComponent();
             this.database = new ShootingDatabase();
-
+            //Adding button to top toolbar
             ToolbarItems.Add(new ToolbarItem
             {
                 Icon = "plus_round_128x128_white_hollow.png",
                 Text = "New Result",
                 Command = new Command(this.GoToRegisterJaktfeltResult)
             });
-
-            jaktfeltResults = database.GetJaktfeltResults();
-            jaktfeltResultsListView.ItemsSource = jaktfeltResults;
+            
         }
 
-
+        //Go to details page for selected result in listview
         private void jaktfeltResultsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedItem = (Result)e.SelectedItem;
@@ -43,13 +41,13 @@ namespace Shooting
             newPage.BindingContext = selectedItem;
             Navigation.PushAsync(newPage);
         }
-
+        //Go to add new result 
         private void GoToRegisterJaktfeltResult()
         {
             var newPage = new JaktfeltCreate(jaktfeltResults);
             Navigation.PushAsync(newPage);
         }
-
+        //Searchbar text changed method
         private void jaktfeltResultsListViewSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             var keyword = jaktfeltResultsListViewSearchBar.Text;
@@ -61,6 +59,15 @@ namespace Shooting
             }
             //figurjaktResults.Where(name => name.Name.Contains(keyword));
             //figurjaktResults.Where(date => date.Date.ToString().Contains(keyword)));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //Getting results from database
+            jaktfeltResults = database.GetJaktfeltResults();
+            //Setting the source for the listview items
+            jaktfeltResultsListView.ItemsSource = jaktfeltResults;
         }
     }
 }

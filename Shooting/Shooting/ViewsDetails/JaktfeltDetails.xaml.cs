@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Shooting.Database;
 using Shooting.Models;
+using Shooting.ViewsEdit;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +20,7 @@ namespace Shooting.ViewsDetails
         private ShootingDatabase database;
         private ObservableCollection<Result> jaktfeltResults;
         private ObservableCollection<JaktfeltPost> jaktfeltResultPosts;
+        //private JaktfeltDetailsViewModel jfDetailsVM;
         private Result result;
 
         public JaktfeltDetails(Result result, ObservableCollection<Result> jaktfeltResults)
@@ -27,33 +29,7 @@ namespace Shooting.ViewsDetails
             this.result = result;
             this.jaktfeltResults = jaktfeltResults;
 
-            ////SET CONTENT
-            JaktfeltResult res = JsonConvert.DeserializeObject<JaktfeltResult>(result.Results);
-            var hits = res.Hits;
-            var InnerHits = res.InnerHits;
-            var points = ((hits * 3) + (InnerHits * 2));
-
-            achievablePointsDetailsLabel.Text = "150";
-            achievedPointsDetailsLabel.Text = (points).ToString();
-
-            jaktfeltResultPosts = res.Posts;
-            jaktfeltResultPostsListView.ItemsSource = jaktfeltResultPosts;
-
-            string qualImage="", qualMark;
-            if (points >= 144) { qualImage = "gold_128x128.png"; qualMark = "GULL"; }
-            else if (points >= 136) { qualImage = "silver_128x128.png"; qualMark = "SØLV"; }
-            else if (points >= 126) { qualImage = "bronze_128x128.png"; qualMark = "BRONSE"; }
-            else { qualMark = ""; }
-
-            if (String.IsNullOrWhiteSpace(qualMark))
-            {
-                qualificationLabel.Text = "";
-            }
-            else
-            {
-                qualificationLabel.Text = String.Format("I denne konkurransen oppfylte du NJFF's minstekrav for ferdighetsmerket {0}.", qualMark);
-                qualificationImage.Source = ImageSource.FromFile(qualImage);
-            }
+            
 
             //ADD TOOLBARITEM
             //DELETE
@@ -62,6 +38,13 @@ namespace Shooting.ViewsDetails
                 Icon = "delete_32x32_white.png",
                 Text = "Delete Result",
                 Command = new Command(this.DeleteResult)
+            });
+            //EDIT
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Icon = "edit_128x128_white.png",
+                Text = "Edit",
+                Command = new Command(this.GoToJaktfeltEdit)
             });
 
         }
@@ -78,6 +61,59 @@ namespace Shooting.ViewsDetails
             }
 
         }
+
+        private async void GoToJaktfeltEdit()
+        {
+            var newPage = new JaktfeltEdit(result);
+            await Navigation.PushAsync(newPage);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            SetContent();
+        }
+        //Method for setting content with method through the OnAppearing method (Could have been in Constructor)
+        private void SetContent()
+        {
+            database = new ShootingDatabase();
+            result = database.GetResult(result.ID);
+            BindingContext = result;
+            ////SET CONTENT
+            JaktfeltResult res = JsonConvert.DeserializeObject<JaktfeltResult>(result.Results);
+            var hits = res.Hits;
+            var InnerHits = res.InnerHits;
+            var points = ((hits * 3) + (InnerHits * 2));
+
+            achievablePointsDetailsLabel.Text = "150";
+            achievedPointsDetailsLabel.Text = (points).ToString();
+
+            jaktfeltResultPosts = res.Posts;
+            jaktfeltResultPostsListView.ItemsSource = jaktfeltResultPosts;
+
+            string qualImage = "", qualMark;
+            if (points >= 144) { qualImage = "gold_128x128.png"; qualMark = "GULL"; }
+            else if (points >= 136) { qualImage = "silver_128x128.png"; qualMark = "SØLV"; }
+            else if (points >= 126) { qualImage = "bronze_128x128.png"; qualMark = "BRONSE"; }
+            else { qualMark = ""; }
+
+            if (String.IsNullOrWhiteSpace(qualMark))
+            {
+                qualificationLabel.Text = "Du oppnådde dessverre ikke noen av NJFF's minstekrav for noe ferdighetsmerke på dette stevnet.";
+                qualificationImage.IsVisible = false;
+            }
+            else
+            {
+                qualificationImage.IsVisible = true;
+                qualificationLabel.Text = String.Format("I denne konkurransen oppfylte du NJFF's minstekrav for ferdighetsmerket {0}.", qualMark);
+                qualificationImage.Source = ImageSource.FromFile(qualImage);
+            }
+        }
+        //public class JaktfeltDetailsViewModel
+        //{
+        //    public Result Result { get; set; }
+        //    public JaktfeltResult JaktfeltResult { get; set; }
+        //}
         ////SET POSTS CONTENT
         //post1Hits.Text = res.P1Hits;
         //post1InnerHits.Text = res.P1InnerHits;
@@ -96,6 +132,6 @@ namespace Shooting.ViewsDetails
 
         //post6Hits.Text = res.P6Hits;
         //post6InnerHits.Text = res.P6InnerHits;
-    
+
     }
 }
